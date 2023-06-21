@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import ShapeDivider from "./ShapeDivider";
 
 const HeroSection = () => {
   return (
@@ -13,7 +12,7 @@ const HeroSection = () => {
       }}
     >
       <div className="absolute inset-0 bg-secondary-800 opacity-20 backdrop-blur-md"></div> {/* Overlay */}
-      <div className="container mx-auto flex flex-col justify-center lg:items-start lg:text-left md:text-left text-center h-full px-10 relative">
+      <div className="container mx-auto flex flex-col justify-center md:items-start lg:text-left md:text-left text-center h-full px-20 relative">
         <h1 className="text-3xl md:text-4xl lg:text-4xl xl:text-6xl text-secondary-300 font-semibold lg:mb-2 lg:w-1/2 lg:text-left md:text-left text-center">
           Hi! My name is Michelle.
         </h1>

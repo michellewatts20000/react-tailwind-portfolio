@@ -45,6 +45,7 @@ const Navigation = () => {
 
   const navItems = [
     { text: 'Home', href: '#hero', icon: null },
+    { text: 'Skills', href: '#skills', icon: null },
     { text: 'Portfolio', href: '#portfolio', icon: null },
     { text: 'Contact', href: '#contact', icon: null },
     { text: null, href: 'https://github.com/michellewatts20000/', icon: faGithub },

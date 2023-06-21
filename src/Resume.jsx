@@ -41,7 +41,7 @@ const Resume = () => {
   ];
 
   return (
-    <section id="resume" className="bg-supernova-500 pt-10 pb-20 px-10 relative">
+    <section id="skills" className="bg-supernova-500 pt-10 pb-20 px-10 relative">
       <div className="shape-divider-other"></div>
       <div className="container mx-auto flex flex-row items-center lg:flex-row justify-center">
         <div className="flex items-center mt-10 lg:mt-0">

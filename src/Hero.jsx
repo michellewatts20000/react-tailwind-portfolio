@@ -9,7 +9,7 @@ const HeroSection = () => {
       style={{
         backgroundImage: 'url("./assets/air-ballon-bg.jpg")',
         backgroundPosition: 'center bottom',
-        height: '70vh'
+        height: '80vh'
       }}
     >
       <div className="absolute inset-0 bg-secondary-800 opacity-20 backdrop-blur-md"></div> {/* Overlay */}
@@ -21,7 +21,7 @@ const HeroSection = () => {
           I&apos;m a Frontend Developer.
         </h1>
         <p className="text-white text-base md:text-lg lg:text-xl lg:w-1/2 lg:text-left md:text-left text-center">
-          I specialize in Vue and React frameworks. I have a background in multimedia. This site was built using React and Tailwind CSS. Check out some of my work by clicking the portfolio button below.
+          I specialise in Vue and React frameworks. I have a background in multimedia. This site was built using React and Tailwind CSS. Check out some of my work by clicking the portfolio button below.
         </p>
         <motion.span
           initial={{ scale: 1 }}
@@ -48,6 +48,7 @@ const HeroSection = () => {
           </button>
         </motion.span>
       </div>
+      
     </section>
   );
 };

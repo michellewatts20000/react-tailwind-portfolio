@@ -1,7 +1,8 @@
-const ShapeDivider = ({ foregroundColor, backgroundColor }) => {
+const ShapeDivider = ({ foregroundColor, transparentBackground, backgroundColor, flip }) => {
   const svgStyle = {
     fill: foregroundColor,
-    backgroundColor: backgroundColor
+    backgroundColor: transparentBackground ? "transparent" : backgroundColor,
+    transform: flip ? "scaleY(-1)" : "none"
   };
 
   return (

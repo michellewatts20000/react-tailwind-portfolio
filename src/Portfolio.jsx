@@ -168,15 +168,16 @@ const Portfolio = () => {
               </a>
 
               <div className="mt-8">
-                <a href={item.deployed} rel="noopener noreferrer" target="_blank" className="rounded-full bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-6 rounded mr-2">
+                <a href={item.deployed} rel="noopener noreferrer" target="_blank" className="rounded-full bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-4 lg:px-6 rounded mr-2">
                   Demo
                   <FontAwesomeIcon icon={faEye} className="ml-2" />
                 </a>
-                <a href={item.github} rel="noopener noreferrer" target="_blank" className="rounded-full bg-secondary-500 hover:bg-secondary-600 text-white font-semibold py-2 px-6 rounded transition duration-300">
+                <a href={item.github} rel="noopener noreferrer" target="_blank" className="rounded-full bg-secondary-500 hover:bg-secondary-600 text-white font-semibold py-2 px-4 lg:px-6 rounded transition duration-300">
                   GitHub
-                  <FontAwesomeIcon icon={faGithub} className="ml-2"/>
+                  <FontAwesomeIcon icon={faGithub} className="ml-2" />
                 </a>
               </div>
+
 
 
             </div>

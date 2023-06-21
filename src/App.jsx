@@ -14,13 +14,13 @@ const App = () => {
 
       <HeroSection />
       
-      {/* <ShapeDivider foregroundColor="transparent" backgroundColor="#F7B733" /> */}
+     
 
-      {/* <Resume /> */}
+      <Resume />
 
       <Portfolio />
 
-      <ShapeDivider foregroundColor="#DFDCE3" backgroundColor="#F7B733" />
+      <ShapeDivider foregroundColor="#DFDCE3" backgroundColor="#F7B733"/>
 
       <Contact />
 

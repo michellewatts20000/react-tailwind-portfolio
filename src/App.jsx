@@ -4,6 +4,7 @@ import Portfolio from './Portfolio';
 import Contact from './Contact';
 import ShapeDivider from './ShapeDivider';
 import Footer from './Footer';
+import Resume from './Resume';
 
 const App = () => {
   return (
@@ -12,6 +13,10 @@ const App = () => {
       <Navigation />
 
       <HeroSection />
+      
+      {/* <ShapeDivider foregroundColor="transparent" backgroundColor="#F7B733" /> */}
+
+      {/* <Resume /> */}
 
       <Portfolio />
 

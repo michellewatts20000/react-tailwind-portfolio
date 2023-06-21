@@ -53,11 +53,8 @@ const Navigation = () => {
 
   return (
     <nav className={`py-6 fixed w-full z-10 ${isScrolled && 'bg-black bg-opacity-50'}`}>
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-8 relative z-10">
         <div className="flex items-center">
-          <div>
-            {/* <a href="#" className="text-lg font-bold text-blue-500">Logo</a> */}
-          </div>
           <div className="relative">
             <button
               className="lg:hidden text-white text-2xl focus:outline-none"
@@ -83,14 +80,14 @@ const Navigation = () => {
           className={`${
             isMenuOpen ? 'block' : 'hidden'
           } lg:flex lg:space-x-4 items-center ${
-            isMobileView ? 'flex flex-col mt-20 h-screen bg-black bg-opacity-50 z-index:5' : 'justify-end'
-          } lg:space-x-8 mt-4 lg:mt-0`}
+            isMobileView ? 'flex flex-col mt-20 text-2xl h-screen bg-black bg-opacity-50 z-index:5' : 'justify-end'
+          } lg:space-x-8 mt-8 lg:mt-0`}
           style={{ zIndex: 30 }}
         >
           {navItems.map((item, index) => (
-            <li key={index}>
+            <li key={index} className='mb-3'>
               {item.href.startsWith('#') ? (
-                <a href={item.href} className="text-white text-md hover:text-primary-200" onClick={handleNavigationClick}>
+                <a href={item.href} className="text-white text-md hover:text-primary-500 hover:underline" onClick={handleNavigationClick}>
                   {item.text}
                 </a>
               ) : (
@@ -98,7 +95,7 @@ const Navigation = () => {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white text-2xl hover:text-primary-200"
+                  className="text-white text-2xl hover:text-primary-500"
                   onClick={handleNavigationClick}
                 >
                   <FontAwesomeIcon icon={item.icon} />

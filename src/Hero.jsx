@@ -6,7 +6,7 @@ const HeroSection = () => {
       id="hero"
       className="relative bg-fixed bg-cover bg-center hero-size"
       style={{
-        backgroundImage: 'url("./src/assets/air-ballon-bg.jpg")',
+        backgroundImage: 'url("./assets/air-ballon-bg.jpg")',
         backgroundPosition: 'center bottom',
         height: '70vh'
       }}

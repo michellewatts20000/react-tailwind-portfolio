@@ -88,7 +88,7 @@ const Portfolio = () => {
       id: "1",
       name: 'Promptopia',
       tech: 'Next.js, MongoDB, Tailwind CSS',
-      url: './src/assets/code.jpg',
+      url: './assets/code.jpg',
       description:
         'Save prompts to be used in AI.',
       deployed: 'https://comforting-gumption-53ec62.netlify.app/',
@@ -98,7 +98,7 @@ const Portfolio = () => {
       id: "2",
       name: "Hearo",
       tech: 'React, MongoDB, Express, Node.js',
-      url: './src/assets/hearo.jpg',
+      url: './assets/hearo.jpg',
       description:
         "Find quiet places to socialise in Sydney.",
       deployed: 'https://still-bayou-61713.herokuapp.com',
@@ -108,7 +108,7 @@ const Portfolio = () => {
       id: "3",
       name: "What's in my Pantry?",
       tech: 'Typescript, React, Material UI, REST API',
-      url: './src/assets/pantry.jpg',
+      url: './assets/pantry.jpg',
       description:
         "Enter ingrediants to find recipes.",
       deployed: 'https://voluble-blini-cd8074.netlify.app/',
@@ -118,7 +118,7 @@ const Portfolio = () => {
       id: "4",
       name: 'Overtime Calculator',
       tech: 'HTML, CSS, JavaScript',
-      url: './src/assets/unpaid-ot.jpg',
+      url: './assets/unpaid-ot.jpg',
       description:
         "How much is unpaid overtime costing you.",
       deployed: 'https://nofreework.com.au/',
@@ -128,7 +128,7 @@ const Portfolio = () => {
       id: "5",
       name: 'Weather Dashboard',
       tech: 'Vue3, Vuetify3, Typescript, REST APIs',
-      url: './src/assets/weather.jpg',
+      url: './assets/weather.jpg',
       description:
         'Find the weather in your city.',
       deployed: 'https://transcendent-lily-437bc2.netlify.app',
@@ -138,7 +138,7 @@ const Portfolio = () => {
       id: "6",
       name: 'Tech Blog',
       tech: 'Handlebars, MySQL, Express.js, Node.js',
-      url: './src/assets/blogger.jpg',
+      url: './assets/blogger.jpg',
       description:
         'Create a blog and comment on others.',
       deployed: 'https://boiling-beach-99511.herokuapp.com/',

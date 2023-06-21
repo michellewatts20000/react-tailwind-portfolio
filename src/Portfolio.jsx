@@ -147,7 +147,8 @@ const Portfolio = () => {
   ]
 
   return (
-    <section id="portfolio" className="bg-twilight-500 pt-10 pb-20 px-10">
+    <section id="portfolio" className="bg-twilight-500 pt-20 pb-20 px-10 relative">
+     <div className="shape-divider"></div>
       <div className="container mx-auto text-center">
         <Slider {...settings}>
           {items.map((item) => (

@@ -15,7 +15,7 @@ const Contact = () => {
 
     const data = { name, email, message };
     try {
-      await axios.post('https://main--gleeful-palmier-14211e.netlify.app/.netlify/functions/sendEmail', data);
+      await axios.post('https://gleeful-palmier-14211e.netlify.app/.netlify/functions/sendEmail', data);
       setSuccessMessage('Email sent successfully');
       setErrorMessage('');
       setLoading(false);

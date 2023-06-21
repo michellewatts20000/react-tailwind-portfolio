@@ -77,13 +77,13 @@ const Contact = () => {
         </form>
       </div>
       {successMessage && (
-        <div className="bg-green-200 text-green-800 p-4 mt-10 rounded-full">
+        <div className="bg-green-200 mx-auto max-w-md text-green-800 p-4 mt-10 rounded-full text-center">
           {successMessage}
         </div>
       )}
 
       {errorMessage && (
-        <div className="bg-red-200 text-red-800 p-4 mb-4">
+        <div className="container bg-red-200 mx-auto max-w-md text-red-800 p-4 mt-10 rounded-full text-center">
           {errorMessage}
         </div>
       )}

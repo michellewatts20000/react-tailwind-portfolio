@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 
-
+console.log('hello from sendEmail.js')
 
 exports.handler = async function (event) {
   const { name, email, message } = event.body;
@@ -13,7 +13,7 @@ exports.handler = async function (event) {
       pass: 'xgcejfzenjyavvof'
     },
   });
-  
+
   // Define the email options
   const mailOptions = {
     from: 'watts.e.michelle@gmail.com',

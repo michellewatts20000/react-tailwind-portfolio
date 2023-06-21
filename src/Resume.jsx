@@ -47,7 +47,7 @@ const Resume = () => {
         <div className="flex items-center mt-10 lg:mt-0">
           <img src="./assets/profile-pic.jpeg" alt="My face" className="w-48 h-48 rounded-full hidden lg:block" />
         </div>
-        <div className="flex flex-col gap-20 max-w-sm text-center lg:ml-20 lg:text-left">
+        <div className="flex flex-col gap-20 max-w-sm text-center lg:ml-20 ">
           <div className="grid md:grid-cols-3 grid-cols-2 lg:gap-5 gap-5">
             {skills.map(({ name, color, skills, text }) => (
               <div key={name} className="flex flex-col gap-2">

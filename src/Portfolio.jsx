@@ -58,7 +58,7 @@ const Portfolio = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     speed: 1000,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 5000,
     cssEase: "linear",
     className: "slides",
     autoplay: true, // Enable autoplay
@@ -100,7 +100,7 @@ const Portfolio = () => {
       tech: 'React, MongoDB, Express, Node.js',
       url: './assets/hearo.jpg',
       description:
-        "Find quiet places to socialise in Sydney.",
+        "Find quiet places to socialise.",
       deployed: 'https://still-bayou-61713.herokuapp.com',
       github: 'https://github.com/michellewatts20000/hearo',
     },
@@ -110,7 +110,7 @@ const Portfolio = () => {
       tech: 'Typescript, React, Material UI, REST API',
       url: './assets/pantry.jpg',
       description:
-        "Enter ingrediants to find recipes.",
+        "Find recipes from what you have.",
       deployed: 'https://voluble-blini-cd8074.netlify.app/',
       github: 'https://github.com/michellewatts20000/react-pantry',
     },
@@ -120,7 +120,7 @@ const Portfolio = () => {
       tech: 'HTML, CSS, JavaScript',
       url: './assets/unpaid-ot.jpg',
       description:
-        "How much is unpaid overtime costing you.",
+        "Calculate unpaid overtime.",
       deployed: 'https://nofreework.com.au/',
       github: 'https://github.com/michellewatts20000/unpaid-overtime-calc',
     },

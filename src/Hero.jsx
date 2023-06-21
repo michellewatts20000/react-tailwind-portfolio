@@ -11,16 +11,16 @@ const HeroSection = () => {
         height: '70vh'
       }}
     >
-      <div className="absolute inset-0 bg-secondary-800 opacity-20"></div> {/* Overlay */}
+      <div className="absolute inset-0 bg-secondary-800 opacity-20 backdrop-blur-md"></div> {/* Overlay */}
       <div className="container mx-auto flex flex-col justify-center lg:items-start lg:text-left md:text-left text-center h-full px-10 relative">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl text-secondary-300 font-semi mb-2 lg:w-1/2 lg:text-left md:text-left text-center">
+        <h1 className="text-3xl md:text-4xl lg:text-6xl text-secondary-300 font-semibold mb-2 lg:w-1/2 lg:text-left md:text-left text-center">
           Hi! My name is Michelle.
         </h1>
-        <h1 className="text-3xl md:text-4xl lg:text-5xl text-secondary-300 font-semi mb-4 lg:w-1/2 lg:text-left md:text-left text-center">
+        <h1 className="text-3xl md:text-4xl lg:text-6xl text-secondary-300 font-semibold mb-4 lg:w-1/2 lg:text-left md:text-left text-center">
           I&apos;m a Frontend Developer.
         </h1>
-        <p className="text-white text-lg md:text-lg lg:text-lg lg:w-1/2 lg:text-left md:text-left text-center">
-          I specialise in Vue and React frameworks. I have a background in graphic design, web design, and audio engineering. This site was built using React and Tailwind CSS. Check out some of my work by clicking the portfolio button below.
+        <p className="text-white text-base md:text-lg lg:text-xl lg:w-1/2 lg:text-left md:text-left text-center">
+          I specialize in Vue and React frameworks. I have a background in multimedia. This site was built using React and Tailwind CSS. Check out some of my work by clicking the portfolio button below.
         </p>
         <motion.span
           initial={{ scale: 1 }}

@@ -1,45 +1,47 @@
 const nodemailer = require('nodemailer');
+const { promisify } = require('util');
 
-console.log('hello from sendEmail.js')
+const transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: process.env.VITE_GMAIL_EMAIL,
+    pass: process.env.VITE_GMAIL_PASSWORD
+  }
+});
 
 exports.handler = async function (event) {
-  const { name, email, message } = event.body;
-  console.log(event.body);
+  const { name, email, message } = JSON.parse(event.body);
 
-  const transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-      user: 'watts.e.michelle@gmail.com',
-      pass: 'xgcejfzenjyavvof'
-    },
-  });
-
-  // Define the email options
-  const mailOptions = {
-    from: 'watts.e.michelle@gmail.com',
-    to: 'watts.e.michelle@gmail.com',
-    subject: 'New Contact Form Submission',
-    text: `
-      Name: ${name}
-      Email: ${email}
-      Message: ${message}
-    `,
-  };
-
-  // Send the email
-  transporter.sendMail(mailOptions, (error) => {
-    if (error) {
-      return {
-        statusCode: 200,
-        body: 'Email sent successfully'
-      }
-    } else {
-      return {
-        statusCode: 500,
-        body: 'An error occurred while sending the email'
-      }
-    }
-  });
-
-  console.log(`Email sent to ${name}`);
+  try {
+    console.log(`Sending email to ${name}`);
+  
+    const sendMailAsync = promisify(transporter.sendMail).bind(transporter);
+  
+    const mailOptions = {
+      from: 'watts.e.michelle@gmail.com',
+      to: 'watts.e.michelle@gmail.com',
+      subject: 'New Contact Form Submission',
+      text: `
+        Name: ${name}
+        Email: ${email}
+        Message: ${message}
+      `
+    };
+  
+    await sendMailAsync(mailOptions);
+  
+    console.log(`Email sent to ${name}`);
+  
+    return {
+      statusCode: 200,
+      body: 'Email sent successfully'
+    };
+  } catch (error) {
+    console.error(error);
+  
+    return {
+      statusCode: 500,
+      body: 'An error occurred while sending the email'
+    };
+  }
 };

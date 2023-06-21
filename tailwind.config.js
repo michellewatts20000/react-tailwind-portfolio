@@ -53,7 +53,7 @@ export default {
           700: '#7A799E',
           800: '#66658D',
           900: '#52527C',
-        },
+        }
         // Add more custom colors here as needed
       },
       fontFamily: {

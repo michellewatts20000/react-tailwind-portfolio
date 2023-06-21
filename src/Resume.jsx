@@ -5,31 +5,37 @@ const Resume = () => {
     {
       name: "Frontend",
       color: "secondary-500",
+      text: "white",
       skills: ["JavaScript", "CSS", "HTML", "Vue.js", "React"]
     },
     {
       name: "Backend",
       color: "primary-500",
+      text: "white",
       skills: ["Node.js", "MongoDB", "MySQL", "GraphQL"]
     },
     {
       name: "CSS Frameworks",
-      color: "gray-500",
+      color: "twilight-500",
+      text: "gray-500",
       skills: ["Bootstrap", "Vuetify", "Chakra", "Tailwind", "Material UI"]
     },
     {
       name: "Testing",
       color: "secondary-500",
+      text: "white",
       skills: ["Jest"]
     },
     {
       name: "Cloud Services",
       color: "primary-500",
+      text: "white",
       skills: ["AWS"]
     },
     {
       name: "Version Control",
-      color: "gray-500",
+      color: "twilight-500",
+      text: "gray-500",
       skills: ["Git"]
     }
   ];
@@ -43,13 +49,13 @@ const Resume = () => {
         </div>
         <div className="flex flex-col gap-20 max-w-sm text-center lg:ml-20 lg:text-left">
           <div className="grid md:grid-cols-3 grid-cols-2 lg:gap-5 gap-5">
-            {skills.map(({ name, color, skills }) => (
+            {skills.map(({ name, color, skills, text }) => (
               <div key={name} className="flex flex-col gap-2">
                 <span className={`text-black text-sm capitalize font-bold`}>
                   {name}:
                 </span>
                 {skills.map((skill, index) => (
-                  <span key={index} className={`bg-${color} text-white py-1 px-3 rounded-full text-sm`}>
+                  <span key={index} className={`bg-${color} text-${text} py-1 px-3 rounded-full text-sm`}>
                     {skill}
                   </span>
                 ))}

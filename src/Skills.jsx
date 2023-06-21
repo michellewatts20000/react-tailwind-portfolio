@@ -1,12 +1,12 @@
 
 
-const Resume = () => {
+const Skills = () => {
   const skills = [
     {
       name: "Frontend",
       color: "secondary-500",
       text: "white",
-      skills: ["JavaScript", "CSS", "HTML", "Vue.js", "React"]
+      skills: ["JavaScript", "CSS", "HTML", "Vue.js", "React", "TypeScript"]
     },
     {
       name: "Backend",
@@ -68,4 +68,4 @@ const Resume = () => {
   );
 };
 
-export default Resume;
+export default Skills;

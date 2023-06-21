@@ -21,12 +21,12 @@ The website features a hero section with a background image, overlay, and introd
 To run the project locally, follow these steps:
 
 1. Clone the repository: `git clone [[repository URL](https://github.com/michellewatts20000/react-tailwind-portfolio.git)]`
-2. Navigate to the project directory: `cd tailwind/portfolio`
+2. Navigate to the project directory: `cd tailwind_portfolio`
 3. Install the dependencies: `npm install`
 
 ## Usage
 
-To start the development server and view the project in your browser, run the following command: npm start
+To start the development server and view the project in your browser, run the following command: 'npm start'
 
 The project will be accessible at `http://localhost:3000`.
 

@@ -24,7 +24,7 @@ p, ul, button {
   width: 100%;
   height: 100px; /* Adjust the height of the shape as needed */
   background-color: #DFDCE3; /* Adjust the color as needed */
-  clip-path: polygon(0 60px, 100% 30px, 100% 0, 0 0); /* Adjust the shape using clip-path */
+  clip-path: polygon(0 80px, 100% 30px, 100% 0, 0 0); /* Adjust the shape using clip-path */
   transform: scaleX(1) scaleY(-1); /* Flip the shape on both X-axis and Y-axis */
   z-index: 5;
 }
@@ -37,8 +37,8 @@ p, ul, button {
   width: 100%;
   height: 100px; /* Adjust the height of the shape as needed */
   background-color: #F7B733; /* Adjust the color as needed */
-  clip-path: polygon(0 60px, 100% 30px, 100% 0, 0 0); /* Adjust the shape using clip-path */
-  transform: scaleX(-1) scaleY(-1); /* Flip the shape on both X-axis and Y-axis */
+  clip-path: polygon(0 80px, 100% 30px, 100% 0, 0 0); /* Adjust the shape using clip-path */
+  transform: scaleX(1) scaleY(-1); /* Flip the shape on both X-axis and Y-axis */
   z-index: 5;
 }
 

@@ -10,7 +10,7 @@ import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 
 
-ReactGA.initialize('G-TGYEXF5GNH');
+
 
 
 const App = () => {
@@ -19,7 +19,7 @@ const App = () => {
   useEffect(() => {
     ReactGA.pageview(location.pathname + location.search);
   }, [location])
-  
+
   return (
     <>
 

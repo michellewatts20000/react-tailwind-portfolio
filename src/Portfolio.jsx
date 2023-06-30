@@ -85,6 +85,16 @@ const Portfolio = () => {
 
   const items = [
     {
+      id: "7",
+      name: 'Google Pixel 6',
+      tech: 'React, Tailwind CSS',
+      url: './assets/pixel.png',
+      description:
+        'Promotional landing page.',
+      deployed: 'https://teal-chimera-860dc7.netlify.app/',
+      github: 'https://github.com/michellewatts20000/Nine-FED-Exam-Watts',
+    },
+    {
       id: "1",
       name: 'Promptopia',
       tech: 'Next.js, MongoDB, Tailwind CSS',

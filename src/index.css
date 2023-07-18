@@ -47,6 +47,6 @@ p, ul, button {
 
 @media screen and (max-width: 400px) {
   .hero-size {
-    height: 100vh !important;
+    height: 80vh !important;
   }
 }

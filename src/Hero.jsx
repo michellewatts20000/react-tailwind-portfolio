@@ -20,7 +20,7 @@ const HeroSection = () => {
           I&apos;m a Frontend Developer.
         </h1>
         <p className="text-white text-base md:text-lg lg:text-xl lg:w-1/2 lg:text-left md:text-left text-center">
-          I specialise in Vue and React frameworks. I have a background in multimedia. This site was built using React and Tailwind CSS. Check out some of my work by clicking the portfolio button below.
+          I specialise in Vue and React frameworks. I have a background in multimedia. This site was built using React and Tailwind CSS.
         </p>
         <motion.span
           initial={{ scale: 1 }}

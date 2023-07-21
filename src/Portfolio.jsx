@@ -1,4 +1,5 @@
 
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -7,6 +8,7 @@ import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { motion } from "framer-motion";
+import PortfolioItem from './PortfolioItem';
 
 function NextArrow(props) {
   const { className, style, onClick } = props;
@@ -50,6 +52,11 @@ function PrevArrow(props) {
 }
 
 const Portfolio = () => {
+  const [showGrid, setShowGrid] = useState(false);
+
+  const toggleView = () => {
+    setShowGrid(!showGrid);
+  };
 
   const settings = {
     arrows: true,
@@ -81,14 +88,12 @@ const Portfolio = () => {
     prevArrow: <PrevArrow />
   };
 
-
-
   const items = [
     {
       id: "7",
       name: 'Google Pixel 6',
       tech: 'React, Tailwind CSS',
-      url: './assets/pixel.png',
+      url: './assets/pixel.jpg',
       description:
         'Promotional landing page.',
       deployed: 'https://teal-chimera-860dc7.netlify.app/',
@@ -153,47 +158,83 @@ const Portfolio = () => {
         'Create a blog and comment on others.',
       deployed: 'https://boiling-beach-99511.herokuapp.com/',
       github: 'https://github.com/michellewatts20000/tech-blog',
+    },
+    {
+      id: "8",
+      name: 'Rock, Paper, Scissors',
+      tech: 'Next.js, Tailwind CSS, Typescript',
+      url: './assets/rock.png',
+      description:
+        'Simple rock, paper, scissors game.',
+      deployed: 'rad-malabi-2b00f0.netlify.app/',
+      github: 'https://github.com/michellewatts20000/rock-paper',
     }
   ]
 
   return (
     <section id="portfolio" className="bg-twilight-500 pt-10 pb-20 px-10 relative">
-     <div className="shape-divider"></div>
+      <div className="shape-divider"></div>
       <div className="container mx-auto text-center">
-        <Slider {...settings}>
-          {items.map((item) => (
-            <div key={item.id} className="bg-transparent p-6">
-              <h1 className="text-2xl font-bold mb-2">{item.name}</h1>
-              <p className="text-gray-800 mb-2">{item.description}</p>
-              <p className="text-sm text-gray-500 mb-6">{item.tech}</p>
-              <a href={item.deployed} style={{ display: "inline-block", overflow: "hidden" }} rel="noopener noreferrer" target="_blank">
-                <div style={{ maxWidth: "500px", maxHeight: "333px", width: "100%", height: "auto" }}>
-                  <motion.img
-                    src={item.url}
-                    alt={item.name}
-                    className="w-full h-full shadow-xl object-cover"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
-                  />
+        <button
+          className="bg-primary-500 hover:bg-primary-400 text-white font-bold mb-10 font-bold py-3 px-7 rounded-full inline-flex items-center"
+          onClick={toggleView}
+        >
+          {showGrid ? "View as slider" : "View as grid"}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6 ml-2"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </button>
+        {showGrid ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {items.map((item) => (
+              <PortfolioItem key={item.id} item={item} />
+            ))}
+          </div>
+
+        ) : (
+          <Slider {...settings}>
+            {items.map((item) => (
+              <div key={item.id} className="bg-transparent p-6">
+                <h1 className="text-2xl font-bold mb-2">{item.name}</h1>
+                <p className="text-gray-800 mb-2">{item.description}</p>
+                <p className="text-sm text-gray-500 mb-6">{item.tech}</p>
+                <a href={item.deployed} style={{ display: "inline-block", overflow: "hidden" }} rel="noopener noreferrer" target="_blank">
+                  <div style={{ maxWidth: "500px", maxHeight: "333px", width: "100%", height: "auto" }}>
+                    <motion.img
+                      src={item.url}
+                      alt={item.name}
+                      className="w-full h-full shadow-xl object-cover"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                    />
+                  </div>
+                </a>
+
+                <div className="mt-8">
+                  <a href={item.deployed} rel="noopener noreferrer" target="_blank" className="rounded-full bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-4 lg:px-6 rounded mr-2">
+                    Demo
+                    <FontAwesomeIcon icon={faEye} className="ml-2" />
+                  </a>
+                  <a href={item.github} rel="noopener noreferrer" target="_blank" className="rounded-full bg-secondary-500 hover:bg-secondary-600 text-white font-semibold py-2 px-4 lg:px-6 rounded transition duration-300">
+                    GitHub
+                    <FontAwesomeIcon icon={faGithub} className="ml-2" />
+                  </a>
                 </div>
-              </a>
-
-              <div className="mt-8">
-                <a href={item.deployed} rel="noopener noreferrer" target="_blank" className="rounded-full bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-4 lg:px-6 rounded mr-2">
-                  Demo
-                  <FontAwesomeIcon icon={faEye} className="ml-2" />
-                </a>
-                <a href={item.github} rel="noopener noreferrer" target="_blank" className="rounded-full bg-secondary-500 hover:bg-secondary-600 text-white font-semibold py-2 px-4 lg:px-6 rounded transition duration-300">
-                  GitHub
-                  <FontAwesomeIcon icon={faGithub} className="ml-2" />
-                </a>
               </div>
+            ))}
+          </Slider>
 
 
-
-            </div>
-          ))}
-        </Slider>
+        )}
       </div>
     </section>
   );

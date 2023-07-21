@@ -15,8 +15,8 @@ const Navigation = () => {
   };
 
   const handleWindowResize = () => {
-    setIsMobileView(window.innerWidth < 1024);
-    if (window.innerWidth >= 1024) {
+    setIsMobileView(window.innerWidth < 640);
+    if (window.innerWidth >= 640) {
       setIsMenuOpen(false);
     }
   };
@@ -62,7 +62,7 @@ const Navigation = () => {
         <div className="flex items-center">
           <div className="relative">
             <button
-              className="lg:hidden text-white text-2xl focus:outline-none"
+              className="sm:hidden text-white text-2xl focus:outline-none"
               onClick={toggleMenu}
               style={{ zIndex: 50 }}
             >
@@ -83,8 +83,8 @@ const Navigation = () => {
         </div>
         <ul
           className={`${isMenuOpen ? 'block' : 'hidden'
-            } lg:flex lg:space-x-4 items-center ${isMobileView ? 'flex flex-col mt-20 text-2xl h-screen bg-black bg-opacity-50 z-index:5' : 'justify-end'
-            } lg:space-x-8 mt-8 lg:mt-0`}
+            } sm:flex sm:space-x-4 sm:justify-center md:justify-end items-center ${isMobileView ? 'flex flex-col mt-20 text-2xl h-screen bg-black bg-opacity-50 z-index:5' : 'justify-end'
+            } sm:space-x-8 mt-8 sm:mt-0`}
           style={{ zIndex: 30 }}
         >
           {navItems.map((item, index) => (

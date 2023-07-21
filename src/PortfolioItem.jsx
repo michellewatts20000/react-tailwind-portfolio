@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const PortfolioItem = ({ item }) => {
   return (
-    <div className="bg-gray-100 rounded-lg shadow-md px-10 md:px-5 pt-5 pb-10">
+    <div className="bg-gray-100 rounded-lg shadow-md px-5 md:px-0 pt-5 pb-10">
       <h2 className="text-xl font-semibold mb-2">{item.name}</h2>
       <p className="text-gray-600 mb-1">{item.description}</p>
       <motion.img

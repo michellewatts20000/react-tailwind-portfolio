@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { getBlogPosts, getPortfolioItems } from "./utils";
+import { useState, useEffect } from 'react';
+import { getBlogPosts, getPortfolioItems } from "./helpers/utils";
 import ReactGA from 'react-ga4';
 import HeroSection from './components/Hero';
 import Navigation from './components/Navigation';

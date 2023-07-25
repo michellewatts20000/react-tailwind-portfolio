@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -51,7 +51,9 @@ function PrevArrow(props) {
   );
 }
 
-const Portfolio = () => {
+const Portfolio = (props) => {
+  const { items } = props;
+
   const [showGrid, setShowGrid] = useState(false);
 
   const toggleView = () => {
@@ -88,88 +90,88 @@ const Portfolio = () => {
     prevArrow: <PrevArrow />
   };
 
-  const items = [
-    {
-      id: "7",
-      name: 'Google Pixel 6',
-      tech: 'React, Tailwind CSS',
-      url: './assets/pixel.jpg',
-      description:
-        'Promotional landing page.',
-      deployed: 'https://teal-chimera-860dc7.netlify.app/',
-      github: 'https://github.com/michellewatts20000/Nine-FED-Exam-Watts',
-    },
-    {
-      id: "1",
-      name: 'Promptopia',
-      tech: 'Next.js, MongoDB, Tailwind CSS',
-      url: './assets/code.jpg',
-      description:
-        'Save prompts to be used in AI.',
-      deployed: 'https://comforting-gumption-53ec62.netlify.app/',
-      github: 'https://github.com/michellewatts20000/promptopia',
-    },
-    {
-      id: "2",
-      name: "Hearo",
-      tech: 'React, MongoDB, Express, Node.js',
-      url: './assets/hearo.jpg',
-      description:
-        "Find quiet places to socialise.",
-      deployed: 'https://still-bayou-61713.herokuapp.com',
-      github: 'https://github.com/michellewatts20000/hearo',
-    },
-    {
-      id: "3",
-      name: "What's in my Pantry?",
-      tech: 'Typescript, React, Material UI, REST API',
-      url: './assets/pantry.jpg',
-      description:
-        "Find recipes from what you have.",
-      deployed: 'https://voluble-blini-cd8074.netlify.app/',
-      github: 'https://github.com/michellewatts20000/react-pantry',
-    },
-    {
-      id: "4",
-      name: 'Overtime Calculator',
-      tech: 'HTML, CSS, JavaScript',
-      url: './assets/unpaid-ot.jpg',
-      description:
-        "Calculate unpaid overtime.",
-      deployed: 'https://nofreework.com.au/',
-      github: 'https://github.com/michellewatts20000/unpaid-overtime-calc',
-    },
-    {
-      id: "5",
-      name: 'Weather Dashboard',
-      tech: 'Vue3, Vuetify3, Typescript, REST APIs',
-      url: './assets/weather.jpg',
-      description:
-        'Find the weather in your city.',
-      deployed: 'https://transcendent-lily-437bc2.netlify.app',
-      github: 'https://github.com/michellewatts20000/vue-weather',
-    },
-    {
-      id: "6",
-      name: 'Tech Blog',
-      tech: 'Handlebars, MySQL, Express.js, Node.js',
-      url: './assets/blogger.jpg',
-      description:
-        'Create a blog and comment on others.',
-      deployed: 'https://boiling-beach-99511.herokuapp.com/',
-      github: 'https://github.com/michellewatts20000/tech-blog',
-    },
-    {
-      id: "8",
-      name: 'Rock, Paper, Scissors',
-      tech: 'Next.js, Tailwind CSS, Typescript',
-      url: './assets/rock.png',
-      description:
-        'Simple rock, paper, scissors game.',
-      deployed: 'rad-malabi-2b00f0.netlify.app/',
-      github: 'https://github.com/michellewatts20000/rock-paper',
-    }
-  ]
+  // const items = [
+  //   {
+  //     id: "7",
+  //     name: 'Google Pixel 6',
+  //     tech: 'React, Tailwind CSS',
+  //     url: './assets/pixel.jpg',
+  //     description:
+  //       'Promotional landing page.',
+  //     deployed: 'https://teal-chimera-860dc7.netlify.app/',
+  //     github: 'https://github.com/michellewatts20000/Nine-FED-Exam-Watts',
+  //   },
+  //   {
+  //     id: "1",
+  //     name: 'Promptopia',
+  //     tech: 'Next.js, MongoDB, Tailwind CSS',
+  //     url: './assets/code.jpg',
+  //     description:
+  //       'Save prompts to be used in AI.',
+  //     deployed: 'https://comforting-gumption-53ec62.netlify.app/',
+  //     github: 'https://github.com/michellewatts20000/promptopia',
+  //   },
+  //   {
+  //     id: "2",
+  //     name: "Hearo",
+  //     tech: 'React, MongoDB, Express, Node.js',
+  //     url: './assets/hearo.jpg',
+  //     description:
+  //       "Find quiet places to socialise.",
+  //     deployed: 'https://still-bayou-61713.herokuapp.com',
+  //     github: 'https://github.com/michellewatts20000/hearo',
+  //   },
+  //   {
+  //     id: "3",
+  //     name: "What's in my Pantry?",
+  //     tech: 'Typescript, React, Material UI, REST API',
+  //     url: './assets/pantry.jpg',
+  //     description:
+  //       "Find recipes from what you have.",
+  //     deployed: 'https://voluble-blini-cd8074.netlify.app/',
+  //     github: 'https://github.com/michellewatts20000/react-pantry',
+  //   },
+  //   {
+  //     id: "4",
+  //     name: 'Overtime Calculator',
+  //     tech: 'HTML, CSS, JavaScript',
+  //     url: './assets/unpaid-ot.jpg',
+  //     description:
+  //       "Calculate unpaid overtime.",
+  //     deployed: 'https://nofreework.com.au/',
+  //     github: 'https://github.com/michellewatts20000/unpaid-overtime-calc',
+  //   },
+  //   {
+  //     id: "5",
+  //     name: 'Weather Dashboard',
+  //     tech: 'Vue3, Vuetify3, Typescript, REST APIs',
+  //     url: './assets/weather.jpg',
+  //     description:
+  //       'Find the weather in your city.',
+  //     deployed: 'https://transcendent-lily-437bc2.netlify.app',
+  //     github: 'https://github.com/michellewatts20000/vue-weather',
+  //   },
+  //   {
+  //     id: "6",
+  //     name: 'Tech Blog',
+  //     tech: 'Handlebars, MySQL, Express.js, Node.js',
+  //     url: './assets/blogger.jpg',
+  //     description:
+  //       'Create a blog and comment on others.',
+  //     deployed: 'https://boiling-beach-99511.herokuapp.com/',
+  //     github: 'https://github.com/michellewatts20000/tech-blog',
+  //   },
+  //   {
+  //     id: "8",
+  //     name: 'Rock, Paper, Scissors',
+  //     tech: 'Next.js, Tailwind CSS, Typescript',
+  //     url: './assets/rock.png',
+  //     description:
+  //       'Simple rock, paper, scissors game.',
+  //     deployed: 'rad-malabi-2b00f0.netlify.app/',
+  //     github: 'https://github.com/michellewatts20000/rock-paper',
+  //   }
+  // ]
 
   return (
     <section id="portfolio" className="bg-twilight-500 pt-10 pb-20 px-10 relative">
@@ -196,22 +198,22 @@ const Portfolio = () => {
         {showGrid ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {items.map((item) => (
-              <PortfolioItem key={item.id} item={item} />
+              <PortfolioItem key={item.sys.id} item={item.fields} />
             ))}
           </div>
 
         ) : (
           <Slider {...settings}>
             {items.map((item) => (
-              <div key={item.id} className="bg-transparent p-6">
-                <h1 className="text-2xl font-bold mb-2">{item.name}</h1>
-                <p className="text-gray-800 mb-2">{item.description}</p>
-                <p className="text-sm text-gray-500 mb-6">{item.tech}</p>
-                <a href={item.deployed} style={{ display: "inline-block", overflow: "hidden" }} rel="noopener noreferrer" target="_blank">
+              <div key={item.sys.id} className="bg-transparent p-6">
+                <h1 className="text-2xl font-bold mb-2">{item.fields.name}</h1>
+                <p className="text-gray-800 mb-2">{item.fields.description}</p>
+                <p className="text-sm text-gray-500 mb-6">{item.fields.tech}</p>
+                <a href={item.fields.deployed} style={{ display: "inline-block", overflow: "hidden" }} rel="noopener noreferrer" target="_blank">
                   <div style={{ maxWidth: "500px", maxHeight: "333px", width: "100%", height: "auto" }}>
                     <motion.img
-                      src={item.url}
-                      alt={item.name}
+                      src={item.fields.image.fields.file.url}
+                      alt={item.fields.name}
                       className="w-full h-full shadow-xl object-cover"
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.5 }}
@@ -220,11 +222,11 @@ const Portfolio = () => {
                 </a>
 
                 <div className="mt-8">
-                  <a href={item.deployed} rel="noopener noreferrer" target="_blank" className="rounded-full bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-4 lg:px-6 rounded mr-2">
+                  <a href={item.fields.deployed} rel="noopener noreferrer" target="_blank" className="rounded-full bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-4 lg:px-6 rounded mr-2">
                     Demo
                     <FontAwesomeIcon icon={faEye} className="ml-2" />
                   </a>
-                  <a href={item.github} rel="noopener noreferrer" target="_blank" className="rounded-full bg-secondary-500 hover:bg-secondary-600 text-white font-semibold py-2 px-4 lg:px-6 rounded transition duration-300">
+                  <a href={item.fields.github} rel="noopener noreferrer" target="_blank" className="rounded-full bg-secondary-500 hover:bg-secondary-600 text-white font-semibold py-2 px-4 lg:px-6 rounded transition duration-300">
                     GitHub
                     <FontAwesomeIcon icon={faGithub} className="ml-2" />
                   </a>

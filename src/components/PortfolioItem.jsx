@@ -9,7 +9,7 @@ const PortfolioItem = ({ item }) => {
       <h2 className="text-xl font-semibold mb-2">{item.name}</h2>
       <p className="text-gray-600 mb-1">{item.description}</p>
       <motion.img
-        src={item.url}
+        src={item.image.fields.file.url}
         alt={item.name}
         className="p-8"
         whileHover={{ scale: 1.1 }}

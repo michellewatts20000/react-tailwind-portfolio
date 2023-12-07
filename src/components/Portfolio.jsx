@@ -185,14 +185,14 @@ const Portfolio = (props) => {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6 ml-2"
-            viewBox="0 0 20 20"
-            fill="currentColor"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
           >
-            <path
-              fillRule="evenodd"
-              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-              clipRule="evenodd"
-            />
+            <rect x="3" y="3" width="7" height="7" stroke-width="2" />
+            <rect x="14" y="3" width="7" height="7" stroke-width="2" />
+            <rect x="3" y="14" width="7" height="7" stroke-width="2" />
+            <rect x="14" y="14" width="7" height="7" stroke-width="2" />
           </svg>
         </button>
         {showGrid ? (

@@ -18,7 +18,7 @@ const Skills = () => {
       name: "CSS Frameworks",
       color: "twilight-500",
       text: "gray-500",
-      skills: ["Bootstrap", "Vuetify", "Chakra", "Tailwind", "Material UI"]
+      skills: ["Tailwind", "Vuetify", "Chakra", "Material UI", "Bootstrap"]
     },
     {
       name: "Testing",

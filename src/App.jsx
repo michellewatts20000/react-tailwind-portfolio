@@ -1,5 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import { getBlogPosts, getPortfolioItems } from "./helpers/utils";
+
+import { gsap } from "gsap";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
+
 import ReactGA from 'react-ga4';
 import HeroSection from './components/Hero';
 import Navigation from './components/Navigation';
@@ -13,6 +17,19 @@ const App = () => {
   const tracking_ID = 'G-Z5SWHFG9S1';
   const [posts, setPosts] = useState([]);
   const [items, setItems] = useState([]);
+
+  gsap.registerPlugin(ScrollSmoother);
+
+  useLayoutEffect(() => {
+    ScrollSmoother.create({
+      smooth: 1,
+      effects: true,
+      speed: 0.8,
+    });
+  }, []);
+
+
+
 
   useEffect(() => {
     ReactGA.initialize(tracking_ID);

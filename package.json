@@ -27,6 +27,7 @@
     "express": "^4.18.2",
     "framer-motion": "^10.12.16",
     "google-fonts-webpack-plugin": "^0.4.4",
+    "gsap": "npm:@gsap/shockingly@^3.12.3",
     "nodemailer": "^6.9.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

@@ -1,6 +1,42 @@
 import { motion } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { useLayoutEffect } from "react";
 
 const HeroSection = () => {
+
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+  useLayoutEffect(() => {
+    ScrollSmoother.create({
+      smooth: 1,
+      effects: true,
+      speed: 0.8,
+    });
+  }, []);
+
+
+  useLayoutEffect(() => {
+    const headings = document.querySelectorAll(".scroll-trigger");
+    headings.forEach((heading) => {
+      let ctx = gsap.context(() => {
+        gsap.fromTo(
+          heading,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 2,
+            scrollTrigger: {
+              trigger: heading,
+              scrub: 1,
+            },
+          }
+        );
+      }, heading);
+      return () => ctx.revert();
+    });
+  }, []);
   return (
     <section
       id="hero"
@@ -12,7 +48,7 @@ const HeroSection = () => {
       }}
     >
       <div className="absolute inset-0 bg-secondary-800 opacity-20 backdrop-blur-md"></div> {/* Overlay */}
-      <div className="container mx-auto flex flex-col justify-center md:items-start lg:text-left md:text-left text-center h-full px-20 relative">
+      <div data-speed="clamp(1.5)" className="container mx-auto flex flex-col justify-center md:items-start lg:text-left md:text-left text-center h-full px-20 relative">
         <h1 className="text-3xl md:text-4xl lg:text-4xl xl:text-5xl text-secondary-500 font-semibold lg:mb-2 lg:w-1/2 lg:text-left md:text-left text-center">
           Hi! My name is Michelle.
         </h1>
@@ -47,7 +83,7 @@ const HeroSection = () => {
           </button>
         </motion.span>
       </div>
-      
+
     </section>
   );
 };

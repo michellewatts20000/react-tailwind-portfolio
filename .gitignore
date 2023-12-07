@@ -25,6 +25,8 @@ dist-ssr
 
 server.js
 .env
+.npmrc
+.nvmrc
 
 # Local Netlify folder
 .netlify

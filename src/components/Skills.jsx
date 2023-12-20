@@ -12,7 +12,7 @@ const Skills = () => {
       name: "Backend",
       color: "primary-500",
       text: "white",
-      skills: ["Node.js", "MongoDB", "MySQL", "GraphQL"]
+      skills: ["Node.js", "MongoDB", "MySQL", "GraphQL", "Express"]
     },
     {
       name: "CSS Frameworks",
@@ -55,7 +55,7 @@ const Skills = () => {
                   {name}:
                 </span>
                 {skills.map((skill, index) => (
-                  <span key={index} className={`bg-${color} text-${text} py-1 px-3 rounded-full text-sm`}>
+                  <span key={index} className={`bg-${color} text-${text} py-1 px-3 rounded-full text-clampChips`}>
                     {skill}
                   </span>
                 ))}

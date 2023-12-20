@@ -38,14 +38,14 @@ const Contact = () => {
           Contact Me
         </h2>
         <p className="text-black text-lg md:text-lg lg:text-xl">
-          Have a question or want to work together? Feel free to get in touch with me.
+          Have a question or want to work together?
         </p>
         <form className="mt-8 max-w-md mx-auto" onSubmit={handleSubmit}>
           <div className="mb-4">
             <input
               type="text"
               className="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
-              placeholder="Your Name"
+              placeholder="Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -55,7 +55,7 @@ const Contact = () => {
             <input
               type="email"
               className="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
-              placeholder="Your Email"
+              placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -65,14 +65,14 @@ const Contact = () => {
             <textarea
               className="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
               rows="5"
-              placeholder="Your Message"
+              placeholder="Message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               required
             ></textarea>
           </div>
-          <button className="bg-white text-black hover:text-supernova-500 text-md font-semibold py-2 px-6 rounded-full" type="submit">
-          {loading ? 'Sending...' : 'Send Message'}
+          <button className="bg-white text-black hover:text-supernova-500 text-clampButton font-semibold py-2 px-6 rounded-full" type="submit">
+            {loading ? 'Sending...' : 'Send Message'}
           </button>
         </form>
       </div>

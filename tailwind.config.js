@@ -5,6 +5,29 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        mb: '330px',
+        tb: '768px',
+        sm: '1024px',
+        sd: '1280px',
+        md: '1366px',
+        lg: '1440px',
+        xl: '1920px',
+        xxl: '2000px'
+      },
+      fontSize: {
+        clampHeading: "clamp(48px, 6vw, 92px)",
+        clampButton: "clamp(14px, 3vw, 16px)",
+        clampChips: "clamp(10px, 3vw, 14px)",
+        '19': ['19px', '36px'],
+        '78': ['78px', '100px'],
+        '100': ['100px', '135px']
+      },
+      lineHeight: {
+        tight: '1.00',
+        normal: '1.35',
+        custom: '1.5',
+      },
       colors: {
         primary: {
           50: '#E7F5F3',

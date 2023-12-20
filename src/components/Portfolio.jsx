@@ -189,10 +189,10 @@ const Portfolio = (props) => {
             fill="none"
             stroke="currentColor"
           >
-            <rect x="3" y="3" width="7" height="7" stroke-width="2" />
-            <rect x="14" y="3" width="7" height="7" stroke-width="2" />
-            <rect x="3" y="14" width="7" height="7" stroke-width="2" />
-            <rect x="14" y="14" width="7" height="7" stroke-width="2" />
+            <rect x="3" y="3" width="7" height="7" strokeWidth="2" />
+            <rect x="14" y="3" width="7" height="7" strokeWidth="2" />
+            <rect x="3" y="14" width="7" height="7" strokeWidth="2" />
+            <rect x="14" y="14" width="7" height="7" strokeWidth="2" />
           </svg>
         </button>
         {showGrid ? (
@@ -210,11 +210,11 @@ const Portfolio = (props) => {
                 <p className="text-gray-800 mb-2">{item.fields.description}</p>
                 <p className="text-sm text-gray-500 mb-6">{item.fields.tech}</p>
                 <a href={item.fields.deployed} style={{ display: "inline-block", overflow: "hidden" }} rel="noopener noreferrer" target="_blank">
-                  <div style={{ maxWidth: "500px", maxHeight: "333px", width: "100%", height: "auto" }}>
+                  <div className="w-[375px] h-[233px]">
                     <motion.img
                       src={item.fields.image.fields.file.url}
                       alt={item.fields.name}
-                      className="w-full h-full shadow-xl object-cover"
+                      className="object-cover h-full"
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.5 }}
                     />

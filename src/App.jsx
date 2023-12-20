@@ -14,7 +14,7 @@ import Footer from './components/Footer';
 import Skills from './components/Skills';
 
 const App = () => {
-  const tracking_ID = 'G-Z5SWHFG9S1';
+  // const tracking_ID = 'G-Z5SWHFG9S1';
   const [posts, setPosts] = useState([]);
   const [items, setItems] = useState([]);
 
@@ -31,10 +31,10 @@ const App = () => {
 
 
 
-  useEffect(() => {
-    ReactGA.initialize(tracking_ID);
-    ReactGA.send({ hitType: 'pageview', page: window.location.pathname });
-  }, [tracking_ID])
+  // useEffect(() => {
+  //   ReactGA.initialize(tracking_ID);
+  //   ReactGA.send({ hitType: 'pageview', page: window.location.pathname });
+  // }, [tracking_ID])
 
   useEffect(() => {
     const fetchData = async () => {

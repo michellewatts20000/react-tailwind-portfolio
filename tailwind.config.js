@@ -16,7 +16,7 @@ export default {
         xxl: '2000px'
       },
       fontSize: {
-        clampHeading: "clamp(48px, 6vw, 92px)",
+        clampHeading: "clamp(40px, 6vw, 50px)",
         clampButton: "clamp(14px, 3vw, 16px)",
         clampChips: "clamp(10px, 3vw, 14px)",
         '19': ['19px', '36px'],
@@ -24,7 +24,7 @@ export default {
         '100': ['100px', '135px']
       },
       lineHeight: {
-        tight: '1.00',
+        tight: '1.20',
         normal: '1.35',
         custom: '1.5',
       },

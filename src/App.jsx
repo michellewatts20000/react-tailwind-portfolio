@@ -1,10 +1,12 @@
-import { useState, useEffect, useLayoutEffect } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { getBlogPosts, getPortfolioItems } from "./helpers/utils";
 
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { SplitText } from "gsap/SplitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import ReactGA from 'react-ga4';
+
 import HeroSection from './components/Hero';
 import Navigation from './components/Navigation';
 import Portfolio from './components/Portfolio';
@@ -15,20 +17,55 @@ import Skills from './components/Skills';
 
 const App = () => {
   // const tracking_ID = 'G-Z5SWHFG9S1';
-  const [posts, setPosts] = useState([]);
+  // const [posts, setPosts] = useState([]);
   const [items, setItems] = useState([]);
+  const component = useRef(null);
 
-  gsap.registerPlugin(ScrollSmoother);
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
   useLayoutEffect(() => {
-    ScrollSmoother.create({
+    let smoother = ScrollSmoother.create({
       smooth: 1,
       effects: true,
       speed: 0.8,
     });
+
+    document.querySelector(".next-button").addEventListener("click", () => {
+      smoother.scrollTo(".first-para", true, "60% center");
+    });
   }, []);
 
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      const split = new SplitText(".hero-text", { type: "lines" });
+      gsap.from(split.lines, {
+        opacity: 1,
+        ease: "power3",
+        x: -1000,
+        duration: 1.0,
+        delay: 0.5,
+        stagger: 0.25,
+      });
 
+      document.querySelectorAll(".scroll-trigger").forEach((element) => {
+        const split2 = new SplitText(element, { type: "lines" });
+
+        gsap.from(split2.lines, {
+          opacity: 0,
+          ease: "power3",
+          x: -1600,
+          duration: 0.25,
+          stagger: 0.25,
+          scrollTrigger: {
+            trigger: element,
+            scrub: 0.25,
+            end: "0%",
+          },
+        });
+      });
+    }, component);
+    return () => ctx.revert();
+  }, []);
 
 
   // useEffect(() => {
@@ -39,10 +76,10 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const postsData = await getBlogPosts();
+        // const postsData = await getBlogPosts();
         const itemsData = await getPortfolioItems();
 
-        setPosts(postsData);
+        // setPosts(postsData);
         setItems(itemsData);
       } catch (error) {
         // Handle error here
@@ -55,13 +92,15 @@ const App = () => {
 
   return (
     <>
-      <Navigation />
-      <HeroSection />
-      <Skills />
-      <Portfolio items={items} />
-      <ShapeDivider foregroundColor="#DFDCE3" backgroundColor="#F7B733" />
-      <Contact />
-      <Footer />
+      <div ref={component}>
+        <Navigation />
+        <HeroSection />
+        <Skills />
+        <Portfolio items={items} />
+        <ShapeDivider foregroundColor="#DFDCE3" backgroundColor="#F7B733" />
+        <Contact />
+        <Footer />
+      </div>
     </>
   );
 };

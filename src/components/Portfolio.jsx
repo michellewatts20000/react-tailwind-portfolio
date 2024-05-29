@@ -240,10 +240,12 @@ const Portfolio = (props) => {
                     Demo
                     <FontAwesomeIcon icon={faEye} className="ml-2" />
                   </a>
-                  <a href={item.fields.github} rel="noopener noreferrer" target="_blank" className="rounded-full bg-secondary-500 hover:bg-secondary-600 text-white text-clampButton font-semibold py-2 px-4 lg:px-6 transition duration-300">
-                    GitHub
-                    <FontAwesomeIcon icon={faGithub} className="ml-2" />
-                  </a>
+                  {item.fields.github && (
+                    <a href={item.fields.github} rel="noopener noreferrer" target="_blank" className="rounded-full bg-secondary-500 hover:bg-secondary-600 text-white text-clampButton font-semibold py-2 px-4 lg:px-6 transition duration-300">
+                      GitHub
+                      <FontAwesomeIcon icon={faGithub} className="ml-2" />
+                    </a>
+                  )}
                 </div>
               </div>
             ))}

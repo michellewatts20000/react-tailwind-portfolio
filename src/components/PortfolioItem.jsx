@@ -23,10 +23,16 @@ const PortfolioItem = ({ item }) => {
           Demo
           <FontAwesomeIcon icon={faEye} className="ml-2" />
         </a>
-        <a href={item.github} rel="noopener noreferrer" target="_blank" className="rounded-full bg-secondary-500 hover:bg-secondary-600 text-white font-semibold py-2 px-4 lg:px-6 rounded transition duration-300">
+        {item.github && (
+          <a href={item.github} rel="noopener noreferrer" target="_blank" className="rounded-full bg-secondary-500 hover:bg-secondary-600 text-white text-clampButton font-semibold py-2 px-4 lg:px-6 transition duration-300">
+            GitHub
+            <FontAwesomeIcon icon={faGithub} className="ml-2" />
+          </a>
+        )}
+        {/* <a href={item.github} rel="noopener noreferrer" target="_blank" className="rounded-full bg-secondary-500 hover:bg-secondary-600 text-white font-semibold py-2 px-4 lg:px-6 rounded transition duration-300">
           GitHub
           <FontAwesomeIcon icon={faGithub} className="ml-2" />
-        </a>
+        </a> */}
       </div>
     </div>
   );

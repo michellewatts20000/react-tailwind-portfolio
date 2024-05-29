@@ -6,7 +6,7 @@ const Skills = () => {
       name: "Frontend",
       color: "secondary-500",
       text: "white",
-      skills: ["JavaScript", "CSS", "HTML", "Vue.js", "React", "TypeScript"]
+      skills: ["JavaScript", "HTML/CSS", "Vue.js", "React/Next.js", "TypeScript"]
     },
     {
       name: "Backend",
@@ -41,10 +41,10 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="bg-supernova-500 pt-10 pb-20 px-10 relative">
+    <section id="skills" className="bg-supernova-500 pt-10 pb-20 px-10 relative first-para">
       <div className="shape-divider-other"></div>
       <div className="container mx-auto flex flex-row items-center lg:flex-row justify-center">
-        <div className="flex items-center mt-10 lg:mt-0">
+        <div className="flex items-center mt-10 lg:mt-0 scroll-trigger">
           <img src="./assets/profile-pic.jpeg" alt="My face" className="w-48 h-48 rounded-full hidden lg:block" />
         </div>
         <div className="flex flex-col gap-20 max-w-sm text-center lg:ml-20 ">

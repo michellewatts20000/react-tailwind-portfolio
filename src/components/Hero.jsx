@@ -49,12 +49,10 @@ const HeroSection = () => {
     >
       <div className="absolute inset-0 bg-secondary-800 opacity-20 backdrop-blur-md"></div> {/* Overlay */}
       <div data-speed="clamp(1.5)" className="container mx-auto flex flex-col justify-center md:ml-20 md:items-start lg:text-left md:text-left text-center h-full sm:px-20 px-10 relative">
-        <h1 className="text-3xl md:text-4xl lg:text-4xl xl:text-5xl text-secondary-500 font-semibold lg:mb-2 lg:w-1/2 lg:text-left md:text-left text-center">
-          Hi! My name is Michelle.
+        <h1 className="hero-text text-clampHeading leading-tight text-secondary-500 font-semibold lg:mb-2 lg:w-1/2 lg:text-left md:text-left text-center">
+          Hi! My name is Michelle. <br />  I&apos;m a Frontend Developer.
         </h1>
-        <h1 className="text-3xl md:text-4xl lg:text-4xl xl:text-5xl text-secondary-500 font-semibold mb-4 lg:w-1/2 lg:text-left md:text-left text-center">
-          I&apos;m a Frontend Developer.
-        </h1>
+
         <p className="text-white text-base md:text-lg lg:text-xl lg:w-1/2 lg:text-left md:text-left text-center">
           I specialise in React and Vue frameworks.  <br />I have a background in multimedia. <br /> This site was built using React and Tailwind CSS.
         </p>
@@ -64,8 +62,8 @@ const HeroSection = () => {
           transition={{ duration: 0.3 }}
         >
           <button
-            className="bg-primary-500 hover:bg-primary-600 text-white font-bold mt-10 text-clampButton py-3 px-4 sm:px-7 rounded-full inline-flex items-center"
-            onClick={() => (window.location.href = "#portfolio")}
+            className="next-button bg-primary-500 hover:bg-primary-600 text-white font-bold mt-10 text-clampButton py-3 px-4 sm:px-7 rounded-full inline-flex items-center"
+          // onClick={() => (window.location.href = "#portfolio")}
           >
             View Portfolio
             <svg

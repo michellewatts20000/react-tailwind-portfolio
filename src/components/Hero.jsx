@@ -4,6 +4,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { useLayoutEffect } from "react";
 
+
+import hero from "/assets/air-ballon-bg.jpg";
 const HeroSection = () => {
 
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
@@ -40,15 +42,12 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative bg-fixed bg-cover bg-center hero-size"
-      style={{
-        backgroundImage: 'url("./assets/air-ballon-bg.jpg")',
-        backgroundPosition: 'center bottom',
-        height: '80vh'
-      }}
+      className="relative h-[900px] w-full overflow-hidden"
+
     >
+      <img src={hero} alt="hero image" className=" object-cover object-left-center absolute h-[120%] w-full" data-speed="auto" />
       <div className="absolute inset-0 bg-secondary-800 opacity-20 backdrop-blur-md"></div> {/* Overlay */}
-      <div data-speed="clamp(1.5)" className="container mx-auto flex flex-col justify-center md:ml-20 md:items-start lg:text-left md:text-left text-center h-full sm:px-20 px-10 relative">
+      <div className="container mx-auto flex flex-col justify-center md:ml-20 md:items-start lg:text-left md:text-left text-center h-full sm:px-20 px-10 relative">
         <h1 className="hero-text text-clampHeading leading-tight text-secondary-500 font-semibold lg:mb-2 lg:w-1/2 lg:text-left md:text-left text-center">
           Hi! My name is Michelle. <br />  I&apos;m a Frontend Developer.
         </h1>

@@ -1,6 +1,7 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { getBlogPosts, getPortfolioItems } from "./helpers/utils";
 
+
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { SplitText } from "gsap/SplitText";
@@ -32,6 +33,19 @@ const App = () => {
 
     document.querySelector(".next-button").addEventListener("click", () => {
       smoother.scrollTo(".first-para", true, "60% center");
+    });
+
+
+    document.querySelector(".skills").addEventListener("click", () => {
+      smoother.scrollTo("#skills", true, "0% top");
+    });
+
+    document.querySelector(".portfolio").addEventListener("click", () => {
+      smoother.scrollTo("#portfolio", true, "0% top");
+    });
+
+    document.querySelector(".contact").addEventListener("click", () => {
+      smoother.scrollTo("#contact", true, "0% top");
     });
   }, []);
 

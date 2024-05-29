@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faTimes, faArrowCircleUp } from '@fortawesome/free-solid-svg-icons';
+import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
+
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navigation = () => {
@@ -51,7 +53,7 @@ const Navigation = () => {
     { text: 'Skills', href: '#skills', icon: null },
     { text: 'Portfolio', href: '#portfolio', icon: null },
     { text: 'Contact', href: '#contact', icon: null },
-    { text: 'Resume', href: 'https://drive.google.com/file/d/1krIgipz9jmquz0QYmlm1wQfsUzI-PVIB/view?usp=sharing', icon: null },
+    { text: 'Resume', href: 'https://drive.google.com/file/d/1krIgipz9jmquz0QYmlm1wQfsUzI-PVIB/view?usp=sharing', icon: faBriefcase },
     { text: null, href: 'https://github.com/michellewatts20000/', icon: faGithub },
     { text: null, href: 'https://www.linkedin.com/in/michelle-e-watts/', icon: faLinkedin },
   ];
@@ -89,10 +91,10 @@ const Navigation = () => {
         >
           {navItems.map((item, index) => (
             <li key={index} className="mb-3">
-              {item.href.startsWith('#') || item.text === 'Resume' ? (
-                <a href={item.href} className="text-white text-md hover:text-primary-500 hover:underline" onClick={handleNavigationClick}>
+              {item.icon === null ? (
+                <button className={`text-white text-md hover:text-primary-500 hover:underline ${item.text.toLowerCase()}`} onClick={handleNavigationClick}>
                   {item.text}
-                </a>
+                </button>
               ) : (
                 <a
                   href={item.href}

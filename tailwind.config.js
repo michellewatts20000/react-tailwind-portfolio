@@ -16,8 +16,8 @@ export default {
         xxl: '2000px'
       },
       fontSize: {
-        clampHeading: "clamp(40px, 6vw, 50px)",
-        clampButton: "clamp(14px, 3vw, 16px)",
+        clampHeading: "clamp(30px, 6vw, 50px)",
+        clampButton: "clamp(10px, 3vw, 14px)",
         clampChips: "clamp(10px, 3vw, 14px)",
         '19': ['19px', '36px'],
         '78': ['78px', '100px'],
@@ -26,7 +26,7 @@ export default {
       lineHeight: {
         tight: '1.20',
         normal: '1.35',
-        custom: '1.5',
+        custom: '1.10',
       },
       colors: {
         primary: {
@@ -76,7 +76,8 @@ export default {
           700: '#7A799E',
           800: '#66658D',
           900: '#52527C',
-        }
+        },
+        'darkBlue':'#083D77'
         // Add more custom colors here as needed
       },
       fontFamily: {

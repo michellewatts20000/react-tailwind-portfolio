@@ -178,7 +178,7 @@ const Portfolio = (props) => {
       <div className="shape-divider"></div>
       <div className="container mx-auto text-center">
         <button
-          className="bg-primary-500 hover:bg-primary-400 text-white font-bold mb-10 text-clampButton py-3 px-7 rounded-full inline-flex items-center"
+          className="bg-primary-500 hover:bg-primary-400 text-white font-bold mb-10 text-clampButton uppercase py-3 px-7 rounded-full inline-flex items-center"
           onClick={toggleView}
         >
           {showGrid ? "View as slider" : "View as grid"}

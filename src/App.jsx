@@ -32,7 +32,7 @@ const App = () => {
     });
 
     document.querySelector(".next-button").addEventListener("click", () => {
-      smoother.scrollTo(".first-para", true, "60% center");
+      smoother.scrollTo("#skills", true, "0% top");
     });
 
 

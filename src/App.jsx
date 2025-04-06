@@ -1,13 +1,9 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react';
-import { getBlogPosts, getPortfolioItems } from "./helpers/utils";
-
-
+import { getPortfolioItems } from "./helpers/utils";
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-
 import HeroSection from './components/Hero';
 import Navigation from './components/Navigation';
 import Portfolio from './components/Portfolio';
@@ -17,8 +13,6 @@ import Footer from './components/Footer';
 import Skills from './components/Skills';
 
 const App = () => {
-  // const tracking_ID = 'G-Z5SWHFG9S1';
-  // const [posts, setPosts] = useState([]);
   const [items, setItems] = useState([]);
   const component = useRef(null);
 
@@ -34,7 +28,6 @@ const App = () => {
     document.querySelector(".next-button").addEventListener("click", () => {
       smoother.scrollTo("#skills", true, "0% top");
     });
-
 
     document.querySelector(".skills").addEventListener("click", () => {
       smoother.scrollTo("#skills", true, "0% top");
@@ -81,22 +74,13 @@ const App = () => {
     return () => ctx.revert();
   }, []);
 
-
-  // useEffect(() => {
-  //   ReactGA.initialize(tracking_ID);
-  //   ReactGA.send({ hitType: 'pageview', page: window.location.pathname });
-  // }, [tracking_ID])
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const postsData = await getBlogPosts();
         const itemsData = await getPortfolioItems();
-
-        // setPosts(postsData);
         setItems(itemsData);
       } catch (error) {
-        // Handle error here
+        console.error(error)
       }
     };
 

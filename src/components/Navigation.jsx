@@ -3,65 +3,72 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faTimes, faArrowCircleUp } from '@fortawesome/free-solid-svg-icons';
 import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
-
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileView, setIsMobileView] = useState(false);
-  const [showScrollButton, setShowScrollButton] = useState(false); // New state
+  const [showScrolltoTop, setshowScrolltoTop] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-  };
-
-  const handleWindowResize = () => {
-    setIsMobileView(window.innerWidth < 640);
-    if (window.innerWidth >= 640) {
-      setIsMenuOpen(false);
-    }
-  };
-
-  const handleScroll = () => {
-    setIsScrolled(window.scrollY > 0);
-    setShowScrollButton(window.scrollY > 0); // Show scroll button when scrolled
   };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleNavigationClick = () => {    
+    isMobileView && isMenuOpen ? setIsMenuOpen(false) : "";
+  };
+
+  
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleWindowResize);
-    handleWindowResize();
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth < 1024);
+    };
+
+    console.log(isMobileView)
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleWindowResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
-  const handleNavigationClick = () => {
-    if (isMobileView) {
-      setIsMenuOpen(false);
-    }
-  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.pageYOffset;
+      const showScroll = scrollPosition > 300;
+      setshowScrolltoTop(showScroll);
+    };
+
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const navItems = [
     { text: 'Skills', href: '#skills', icon: null },
     { text: 'Portfolio', href: '#portfolio', icon: null },
     { text: 'Contact', href: '#contact', icon: null },
     { text: 'Resume', href: 'https://drive.google.com/file/d/1krIgipz9jmquz0QYmlm1wQfsUzI-PVIB/view?usp=sharing', icon: faBriefcase },
-    { text: null, href: 'https://github.com/michellewatts20000/', icon: faGithub },
-    { text: null, href: 'https://www.linkedin.com/in/michelle-e-watts/', icon: faLinkedin },
+    { text: 'GitHub', href: 'https://github.com/michellewatts20000/', icon: faGithub },
+    { text: 'LinkedIn', href: 'https://www.linkedin.com/in/michelle-e-watts/', icon: faLinkedin },
   ];
 
   return (
-    <nav className={`py-6 fixed w-full z-10 ${isScrolled && 'bg-black bg-opacity-50'}`}>
-      <div className="container mx-auto px-8 relative z-10">
-        <div className="flex items-center">
+    <nav className={`py-6 fixed w-full z-[1000] bg-black bg-opacity-50`}>
+      
+      {/* mobile navigation */}
+        <div className="pl-10">
           <div className="relative">
             <button
               className="sm:hidden text-white text-2xl focus:outline-none"
@@ -83,25 +90,26 @@ const Navigation = () => {
             </AnimatePresence>
           </div>
         </div>
+        <div className="container mx-auto px-8 relative z-10">
         <ul
           className={`${isMenuOpen ? 'block' : 'hidden'
-            } sm:flex sm:space-x-4 sm:justify-center md:justify-end items-center ${isMobileView ? 'flex flex-col mt-20 text-2xl h-screen bg-black bg-opacity-50 z-index:5' : 'justify-end'
+            } sm:flex sm:space-x-4 sm:justify-center md:justify-end items-center 'justify-end'
             } sm:space-x-8 mt-8 sm:mt-0`}
           style={{ zIndex: 30 }}
         >
           {navItems.map((item, index) => (
-            <li key={index} className="mb-3">
+            <li key={index} className="mb-3 relative">
               {item.icon === null ? (
-                <button className={`text-white text-md hover:text-primary-500 hover:underline ${item.text.toLowerCase()}`} onClick={handleNavigationClick}>
+                <a className={`text-white text-md hover:text-primary-500 hover:underline`} href={item.href} onClick={handleNavigationClick}>
                   {item.text}
-                </button>
+                </a>
               ) : (
                 <a
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white text-2xl hover:text-primary-500"
-                  onClick={handleNavigationClick}
+                  onClick={() => (window.location.href = item.href)}
                 >
                   <FontAwesomeIcon icon={item.icon} />
                 </a>
@@ -109,7 +117,7 @@ const Navigation = () => {
             </li>
           ))}
         </ul>
-        {showScrollButton && ( // Render scroll button conditionally
+        {(showScrolltoTop && !isMenuOpen) &&
           <button
             className="fixed right-10 bottom-6 bg-white rounded-full pt-4 px-4 pb-3 shadow-md focus:outline-none opacity-75 hover:opacity-100 transition-opacity duration-300"
             onClick={scrollToTop}
@@ -117,8 +125,7 @@ const Navigation = () => {
           >
             <FontAwesomeIcon icon={faArrowCircleUp} className="text-secondary-500 text-2xl" />
           </button>
-
-        )}
+        }
       </div>
     </nav>
   );

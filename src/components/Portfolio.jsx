@@ -224,7 +224,6 @@ const Portfolio = (props) => {
                 <p className="text-gray-800 mb-2">{item.fields.description}</p>
                 <p className="text-sm text-gray-500 mb-6">{item.fields.tech}</p>
                 <a href={item.fields.deployed} style={{ display: "inline-block", overflow: "hidden" }} rel="noopener noreferrer" target="_blank">
-
                   <motion.img
                     src={item.fields.image.fields.file.url}
                     alt={item.fields.name}
@@ -232,11 +231,10 @@ const Portfolio = (props) => {
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.5 }}
                   />
-
                 </a>
 
                 <div className="mt-8 flex flex-col gap-2 sm:gap-4 mb:flex-row items-center justify-center">
-                  <a href={item.fields.deployed} rel="noopener noreferrer" target="_blank" className="rounded-full bg-primary-500 hover:bg-primary-600 text-white text-clampButton font-bold py-2 px-4 lg:px-6">
+                  <a href={item.fields.deployed} rel="noopener noreferrer" target="_blank" className="rounded-full bg-primary-500 hover:bg-primary-600 text-white text-clampButton font-semibold py-2 px-4 lg:px-6 transition duration-300">
                     Demo
                     <FontAwesomeIcon icon={faEye} className="ml-2" />
                   </a>

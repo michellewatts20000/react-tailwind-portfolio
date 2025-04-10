@@ -66,8 +66,7 @@ const Navigation = () => {
 
   return (
     <nav className={`py-6 fixed w-full z-[1000] bg-black bg-opacity-50`}>
-      
-      {/* mobile navigation */}
+      {/* mobile navigation button */}
         <div className="pl-10">
           <div className="relative">
             <button
@@ -90,7 +89,7 @@ const Navigation = () => {
             </AnimatePresence>
           </div>
         </div>
-        <div className="container mx-auto px-8 relative z-10">
+        <div className="container pl-10 md:pl-0 md:mx-auto md:px-8 relative z-10">
         <ul
           className={`${isMenuOpen ? 'block' : 'hidden'
             } sm:flex sm:space-x-4 sm:justify-center md:justify-end items-center 'justify-end'

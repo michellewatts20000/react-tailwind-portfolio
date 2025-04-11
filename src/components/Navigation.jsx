@@ -18,15 +18,8 @@ const Navigation = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleNavigationClick = (item) => {    
+  const handleNavigationClick = () => {    
     isMobileView && isMenuOpen ? setIsMenuOpen(false) : "";
-
-    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-      window.gtag('event', 'navigation_click', {
-        event_category: 'Navigation',
-        event_label: item.text,
-      });
-    }
   };
 
   
@@ -106,7 +99,7 @@ const Navigation = () => {
           {navItems.map((item, index) => (
             <li key={index} className="mb-3 relative">
               {item.icon === null ? (
-                <a className={`text-white text-md hover:text-primary-500 hover:underline`} href={item.href} onClick={handleNavigationClick(item)}>
+                <a className={`text-white text-md hover:text-primary-500 hover:underline`} href={item.href} onClick={handleNavigationClick}>
                   {item.text}
                 </a>
               ) : (

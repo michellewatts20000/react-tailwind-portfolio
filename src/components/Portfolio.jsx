@@ -66,8 +66,8 @@ const Portfolio = (props) => {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    speed: 1000,
-    autoplaySpeed: 5000,
+    speed: 300,
+    autoplaySpeed: 2000,
     cssEase: "linear",
     className: "slides",
     autoplay: true, // Enable autoplay

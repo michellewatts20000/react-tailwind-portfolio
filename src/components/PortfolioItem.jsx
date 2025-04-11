@@ -19,7 +19,7 @@ const PortfolioItem = ({ item }) => {
       </div>
       <p className="text-gray-500 text-sm">{item.tech}</p>
       <div className="mt-4">
-        <a href={item.deployed} rel="noopener noreferrer" target="_blank" className="rounded-full bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-4 lg:px-6 rounded mr-2">
+        <a href={item.deployed} rel="noopener noreferrer" target="_blank" className="rounded-full bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-4 lg:px-6 rounded mr-2 text-clampButton">
           Demo
           <FontAwesomeIcon icon={faEye} className="ml-2" />
         </a>

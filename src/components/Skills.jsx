@@ -42,6 +42,9 @@ const Skills = () => {
 
   return (
     <section id="skills" className="bg-supernova-500 pt-10 pb-20 px-10 relative first-para">
+     <h2 className="text-3xl text-center text-black font-bold mb-4">
+         Skills
+        </h2>
       <div className="shape-divider-other"></div>
       <div className="container mx-auto flex flex-row items-center sm:flex-row justify-center">
         <div className="flex items-center mt-10 lg:mt-0 scroll-trigger">

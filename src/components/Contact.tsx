@@ -9,7 +9,7 @@ const Contact = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     setLoading(true);
     e.preventDefault();
 
@@ -64,7 +64,7 @@ const Contact = () => {
           <div className="mb-4">
             <textarea
               className="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
-              rows="5"
+              rows={5}
               placeholder="Message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}

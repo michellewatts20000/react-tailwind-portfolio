@@ -7,16 +7,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="FrlEDAhxm2FNwnl2MNoI6m6K-7yCL0zMNSF3QWxjxFw" />
   <title>Michelle Watts' Portfolio</title>
+  <link rel="preconnect" href="https://cdn.contentful.com" crossorigin />
+  <link rel="preconnect" href="https://images.ctfassets.net" />
+  <link rel="preload" as="image" type="image/avif" fetchpriority="high"
+    imagesrcset="/assets/air-balloon-bg-640.avif 640w, /assets/air-balloon-bg-1024.avif 1024w, /assets/air-balloon-bg-1920.avif 1920w"
+    imagesizes="max(100vw, 177vh)" />
 </head>
 
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5SWHFG9S1"></script>
+<!-- Loaded after the page has finished loading so it doesn't compete with the site itself.
+     gtag() calls before then are queued in dataLayer and sent once the script arrives. -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-Z5SWHFG9S1');
+
+  window.addEventListener('load', function () {
+    var loadGtag = function () {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-Z5SWHFG9S1';
+      document.head.appendChild(script);
+    };
+    'requestIdleCallback' in window ? requestIdleCallback(loadGtag, { timeout: 3000 }) : setTimeout(loadGtag, 1);
+  });
 </script>
 
 <body>

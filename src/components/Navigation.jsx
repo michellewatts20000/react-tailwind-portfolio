@@ -72,6 +72,8 @@ const Navigation = () => {
             <button
               className="sm:hidden text-white text-2xl focus:outline-none"
               onClick={toggleMenu}
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMenuOpen}
               style={{ zIndex: 50 }}
             >
               <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
@@ -107,6 +109,7 @@ const Navigation = () => {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={item.text}
                   className="text-white text-2xl hover:text-primary-500"
                   onClick={() => (window.location.href = item.href)}
                 >
@@ -120,6 +123,7 @@ const Navigation = () => {
           <button
             className="fixed right-10 bottom-6 bg-white rounded-full pt-4 px-4 pb-3 shadow-md focus:outline-none opacity-75 hover:opacity-100 transition-opacity duration-300"
             onClick={scrollToTop}
+            aria-label="Scroll to top"
             style={{ zIndex: 40 }}
           >
             <FontAwesomeIcon icon={faArrowCircleUp} className="text-secondary-500 text-2xl" />

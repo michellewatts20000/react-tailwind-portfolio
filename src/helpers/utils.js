@@ -21,3 +21,10 @@ export const getPortfolioItems = async () => {
   });
   return response.items;
 };
+
+// Build a resized, compressed image URL using the Contentful Images API.
+// Contentful returns protocol-relative URLs ("//images.ctfassets.net/..."), so force https.
+export const getImageUrl = (image, { width, height, format = 'webp', quality = 75 }) => {
+  const params = new URLSearchParams({ w: width, h: height, fit: 'fill', fm: format, q: quality });
+  return `https:${image.fields.file.url}?${params}`;
+};

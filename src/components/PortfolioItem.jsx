@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { motion } from "framer-motion";
+import { getImageUrl } from "../helpers/utils";
 
 const PortfolioItem = ({ item }) => {
   return (
@@ -9,13 +10,19 @@ const PortfolioItem = ({ item }) => {
       <h2 className="text-xl font-semibold mb-2">{item.name}</h2>
       <p className="text-gray-600 mb-1">{item.description}</p>
       <div>
-        <motion.img
-          src={item.image.fields.file.url}
-          alt={item.name}
-          className="p-8 object-cover h-[233px] w-[375px] mx-auto"
-          whileHover={{ scale: 1.1 }}
-          transition={{ duration: 0.5 }}
-        />
+        <picture>
+          <source type="image/avif" srcSet={getImageUrl(item.image, { width: 750, height: 466, format: 'avif', quality: 60 })} />
+          <motion.img
+            src={getImageUrl(item.image, { width: 750, height: 466 })}
+            alt={item.name}
+            width="375"
+            height="233"
+            loading="lazy"
+            className="p-8 object-cover h-[233px] w-[375px] mx-auto"
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.5 }}
+          />
+        </picture>
       </div>
       <p className="text-gray-500 text-sm">{item.tech}</p>
       <div className="mt-4">

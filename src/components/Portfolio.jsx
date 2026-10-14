@@ -9,6 +9,7 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { motion } from "framer-motion";
 import PortfolioItem from './PortfolioItem';
+import { getImageUrl } from '../helpers/utils';
 
 function NextArrow(props) {
   const { className, style, onClick } = props;
@@ -141,13 +142,19 @@ const Portfolio = (props) => {
                 <p className="text-gray-800 mb-2">{item.fields.description}</p>
                 <p className="text-sm text-gray-500 mb-6">{item.fields.tech}</p>
                 <a href={item.fields.deployed} style={{ display: "inline-block", overflow: "hidden" }} rel="noopener noreferrer" target="_blank">
-                  <motion.img
-                    src={item.fields.image.fields.file.url}
-                    alt={item.fields.name}
-                    className="object-cover h-[233px] w-[375px]"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
-                  />
+                  <picture>
+                    <source type="image/avif" srcSet={getImageUrl(item.fields.image, { width: 750, height: 466, format: 'avif', quality: 60 })} />
+                    <motion.img
+                      src={getImageUrl(item.fields.image, { width: 750, height: 466 })}
+                      alt={item.fields.name}
+                      width="375"
+                      height="233"
+                      loading="lazy"
+                      className="object-cover h-[233px] w-[375px]"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                    />
+                  </picture>
                 </a>
 
                 <div className="mt-8 flex flex-col gap-2 sm:gap-4 mb:flex-row items-center justify-center">

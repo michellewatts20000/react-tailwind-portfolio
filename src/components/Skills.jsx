@@ -4,26 +4,32 @@ const Skills = () => {
   const skills = [
     {
       name: "Frontend",
+      chipClass: "bg-secondary-700 text-white",
       skills: ["JavaScript", "HTML/CSS", "Vue.js", "React/Next.js", "TypeScript"]
     },
     {
       name: "Backend",
+      chipClass: "bg-primary-800 text-white",
       skills: ["Node.js", "MongoDB", "MySQL", "GraphQL", "Express"]
     },
     {
       name: "CSS Frameworks",
+      chipClass: "bg-twilight-500 text-gray-700",
       skills: ["Tailwind", "Vuetify", "Chakra", "Material UI", "Bootstrap"]
     },
     {
       name: "Testing",
+      chipClass: "bg-secondary-700 text-white",
       skills: ["Jest"]
     },
     {
       name: "Cloud Services",
+      chipClass: "bg-primary-800 text-white",
       skills: ["AWS"]
     },
     {
       name: "Version Control",
+      chipClass: "bg-twilight-500 text-gray-700",
       skills: ["Git"]
     }
   ];
@@ -44,13 +50,13 @@ const Skills = () => {
         </div>
         <div className="flex flex-col gap-20 max-w-sm text-center">
           <div className="grid tb:grid-cols-3 grid-cols-2 lg:gap-5 gap-5">
-            {skills.map(({ name, skills }) => (
+            {skills.map(({ name, chipClass, skills }) => (
               <div key={name} className="flex flex-col gap-2">
                 <span className="text-gray-900 text-sm font-semibold">
                   {name}:
                 </span>
                 {skills.map((skill, index) => (
-                  <span key={index} className="bg-white text-gray-700 ring-1 ring-gray-200 py-1 px-3 rounded-full text-clampChips">
+                  <span key={index} className={`${chipClass} py-1 px-3 rounded-full text-clampChips`}>
                     {skill}
                   </span>
                 ))}

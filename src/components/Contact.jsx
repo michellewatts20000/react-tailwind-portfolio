@@ -37,19 +37,17 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="bg-supernova-500 pb-20 px-20">
+    <section id="contact" className="bg-supernova-500 pt-8 pb-20 px-6 tb:px-10">
       <div className="container mx-auto text-center text-black">
-        <h2 className="text-3xl text-black font-bold mb-4">
+        <h2 className="text-4xl text-gray-900 font-semibold mb-4">
           Contact Me
         </h2>
-        <p className="text-black text-lg md:text-lg lg:text-xl">
-          Have a question or want to work together?
-        </p>
+
         <form className="mt-8 max-w-md mx-auto" onSubmit={handleSubmit}>
           <div className="mb-4">
             <input
               type="text"
-              className="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
+              className="w-full px-4 py-3 rounded-lg bg-white ring-1 ring-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-800"
               placeholder="Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -59,7 +57,7 @@ const Contact = () => {
           <div className="mb-4">
             <input
               type="email"
-              className="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
+              className="w-full px-4 py-3 rounded-lg bg-white ring-1 ring-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-800"
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -68,7 +66,7 @@ const Contact = () => {
           </div>
           <div className="mb-4">
             <textarea
-              className="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
+              className="w-full px-4 py-3 rounded-lg bg-white ring-1 ring-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-800"
               rows="5"
               placeholder="Message"
               value={message}
@@ -76,7 +74,7 @@ const Contact = () => {
               required
             ></textarea>
           </div>
-          <button className="bg-white text-black hover:text-supernova-500 text-clampButton font-semibold py-2 px-6 rounded-full" type="submit">
+          <button className="bg-primary-800 hover:bg-primary-900 text-white font-semibold py-3 px-7 rounded-full transition-colors" type="submit">
             {loading ? 'Sending...' : 'Send Message'}
           </button>
         </form>

@@ -62,66 +62,71 @@ const Navigation = () => {
     { text: 'LinkedIn', href: 'https://www.linkedin.com/in/michelle-e-watts/', icon: faLinkedin },
   ];
 
+  const renderNavItem = (item) =>
+    item.icon === null ? (
+      <a className="text-white hover:text-primary-300 transition-colors" href={item.href} onClick={handleNavigationClick}>
+        {item.text}
+      </a>
+    ) : (
+      <a
+        href={item.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={item.text}
+        className="text-white text-2xl hover:text-primary-300 transition-colors"
+      >
+        <FontAwesomeIcon icon={item.icon} />
+      </a>
+    );
+
   return (
-    <nav className={`py-6 fixed w-full z-[1000] bg-black bg-opacity-50`}>
-      {/* mobile navigation button */}
-        <div className="pl-10">
-          <div className="relative">
-            <button
-              className="sm:hidden text-white text-2xl focus:outline-none"
-              onClick={toggleMenu}
-              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={isMenuOpen}
-              style={{ zIndex: 50 }}
-            >
-              <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
-            </button>
-            <div
-              className={`fixed inset-0 bg-black h-screen transition duration-300 ${isMenuOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-0 pointer-events-none'}`}
-              style={{ zIndex: '-100' }}
-              aria-hidden="true"
-            ></div>
-          </div>
-        </div>
-        <div className="container pl-10 md:pl-0 md:mx-auto md:px-8 relative z-10">
-        <ul
-          className={`${isMenuOpen ? 'block' : 'hidden'
-            } sm:flex sm:space-x-4 sm:justify-center md:justify-end items-center 'justify-end'
-            } sm:space-x-8 mt-8 sm:mt-0`}
-          style={{ zIndex: 30 }}
-        >
-          {navItems.map((item, index) => (
-            <li key={index} className="mb-3 relative">
-              {item.icon === null ? (
-                <a className={`text-white text-md hover:text-primary-500 hover:underline`} href={item.href} onClick={handleNavigationClick}>
-                  {item.text}
-                </a>
-              ) : (
-                <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={item.text}
-                  className="text-white text-2xl hover:text-primary-500"
-                  onClick={() => (window.location.href = item.href)}
-                >
-                  <FontAwesomeIcon icon={item.icon} />
-                </a>
-              )}
-            </li>
+    <nav className="fixed w-full z-[1000] bg-black bg-opacity-50">
+      <div className="max-w-6xl mx-auto px-6 tb:px-10 py-5 flex items-center justify-between relative z-10">
+        <a href="#hero" className="text-white text-2xl font-semibold font-['Cormorant_Garamond',serif]" onClick={handleNavigationClick}>
+          Michelle Watts
+        </a>
+
+        {/* desktop navigation */}
+        <ul className="hidden sm:flex items-center gap-8">
+          {navItems.map((item) => (
+            <li key={item.text}>{renderNavItem(item)}</li>
           ))}
         </ul>
-        {(showScrolltoTop && !isMenuOpen) &&
-          <button
-            className="fixed right-10 bottom-6 bg-white rounded-full pt-4 px-4 pb-3 shadow-md focus:outline-none opacity-75 hover:opacity-100 transition-opacity duration-300"
-            onClick={scrollToTop}
-            aria-label="Scroll to top"
-            style={{ zIndex: 40 }}
-          >
-            <FontAwesomeIcon icon={faArrowCircleUp} className="text-secondary-500 text-2xl" />
-          </button>
-        }
+
+        {/* mobile navigation button */}
+        <button
+          className="sm:hidden text-white text-2xl focus:outline-none"
+          onClick={toggleMenu}
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMenuOpen}
+        >
+          <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
+        </button>
       </div>
+
+      {/* mobile navigation menu */}
+      <div
+        className={`sm:hidden fixed inset-0 bg-black h-screen transition duration-300 ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        aria-hidden="true"
+      ></div>
+      {isMenuOpen && (
+        <ul className="sm:hidden relative z-10 px-6 pt-4 pb-8 flex flex-col gap-5 text-lg">
+          {navItems.map((item) => (
+            <li key={item.text}>{renderNavItem(item)}</li>
+          ))}
+        </ul>
+      )}
+
+      {(showScrolltoTop && !isMenuOpen) &&
+        <button
+          className="fixed right-6 tb:right-10 bottom-6 bg-white rounded-full pt-4 px-4 pb-3 shadow-md focus:outline-none opacity-75 hover:opacity-100 transition-opacity duration-300"
+          onClick={scrollToTop}
+          aria-label="Scroll to top"
+          style={{ zIndex: 40 }}
+        >
+          <FontAwesomeIcon icon={faArrowCircleUp} className="text-primary-800 text-2xl" />
+        </button>
+      }
     </nav>
   );
 };

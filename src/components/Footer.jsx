@@ -4,7 +4,7 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 const Footer = () => {
   return (
     <footer className="bg-black w-full">
-      <div className="container mx-auto flex items-center justify-center px-4 py-5">
+      <div className="container mx-auto flex items-center justify-center px-4 pt-6 pb-3">
         <a
           href="https://github.com/michellewatts20000/"
           target="_blank"
@@ -24,6 +24,9 @@ const Footer = () => {
           LinkedIn
         </a>
       </div>
+      <p className="text-gray-400 text-sm text-center px-4 pb-6">
+        Built with React and Tailwind CSS.
+      </p>
     </footer>
   );
 };

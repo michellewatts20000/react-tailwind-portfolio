@@ -4,9 +4,9 @@ import HeroSection from './components/Hero';
 import Navigation from './components/Navigation';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
-import ShapeDivider from './components/ShapeDivider';
 import Footer from './components/Footer';
 import Skills from './components/Skills';
+import ShapeDivider from './components/ShapeDivider';
 
 const App = () => {
   const [items, setItems] = useState([]);
@@ -31,7 +31,7 @@ const App = () => {
         <HeroSection />
         <Skills />
         <Portfolio items={items} />
-        <ShapeDivider foregroundColor="#DFDCE3" backgroundColor="#F7B733" />
+        <ShapeDivider foregroundColor="#ffffff" backgroundColor="#F7B733" />
         <Contact />
         <Footer />
 

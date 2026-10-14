@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { motion } from "framer-motion";
 import { getImageUrl } from "../helpers/utils";
 
 const PortfolioItem = ({ item }) => {
@@ -12,26 +11,24 @@ const PortfolioItem = ({ item }) => {
       <div>
         <picture>
           <source type="image/avif" srcSet={getImageUrl(item.image, { width: 750, height: 466, format: 'avif', quality: 60 })} />
-          <motion.img
+          <img
             src={getImageUrl(item.image, { width: 750, height: 466 })}
             alt={item.name}
             width="375"
             height="233"
             loading="lazy"
-            className="p-8 object-cover h-[233px] w-[375px] mx-auto"
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5 }}
+            className="p-8 object-cover h-[233px] w-[375px] mx-auto transition-transform duration-500 hover:scale-110"
           />
         </picture>
       </div>
-      <p className="text-gray-500 text-sm">{item.tech}</p>
+      <p className="text-gray-600 text-sm">{item.tech}</p>
       <div className="mt-4">
-        <a href={item.deployed} rel="noopener noreferrer" target="_blank" className="rounded-full bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-4 lg:px-6 rounded mr-2 text-clampButton">
+        <a href={item.deployed} rel="noopener noreferrer" target="_blank" className="rounded-full bg-primary-800 hover:bg-primary-900 text-white font-bold py-2 px-4 lg:px-6 rounded mr-2 text-clampButton">
           Demo
           <FontAwesomeIcon icon={faEye} className="ml-2" />
         </a>
         {item.github && (
-          <a href={item.github} rel="noopener noreferrer" target="_blank" className="rounded-full bg-secondary-500 hover:bg-secondary-600 text-white text-clampButton font-semibold py-2 px-4 lg:px-6 transition duration-300">
+          <a href={item.github} rel="noopener noreferrer" target="_blank" className="rounded-full bg-secondary-700 hover:bg-secondary-800 text-white text-clampButton font-semibold py-2 px-4 lg:px-6 transition duration-300">
             GitHub
             <FontAwesomeIcon icon={faGithub} className="ml-2" />
           </a>

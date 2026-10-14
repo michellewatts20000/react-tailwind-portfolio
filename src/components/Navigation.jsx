@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faTimes, faArrowCircleUp } from '@fortawesome/free-solid-svg-icons';
 import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
-import { motion, AnimatePresence } from 'framer-motion';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,7 +27,6 @@ const Navigation = () => {
       setIsMobileView(window.innerWidth < 1024);
     };
 
-    console.log(isMobileView)
     handleResize();
 
     window.addEventListener('resize', handleResize);
@@ -78,17 +76,11 @@ const Navigation = () => {
             >
               <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
             </button>
-            <AnimatePresence>
-              {isMenuOpen && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0 }}
-                  className="fixed inset-0 bg-black h-screen"
-                  style={{ zIndex: '-100' }}
-                ></motion.div>
-              )}
-            </AnimatePresence>
+            <div
+              className={`fixed inset-0 bg-black h-screen transition duration-300 ${isMenuOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-0 pointer-events-none'}`}
+              style={{ zIndex: '-100' }}
+              aria-hidden="true"
+            ></div>
           </div>
         </div>
         <div className="container pl-10 md:pl-0 md:mx-auto md:px-8 relative z-10">

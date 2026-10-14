@@ -1,56 +1,10 @@
-
 import { useState } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { motion } from "framer-motion";
+import Carousel from './Carousel';
 import PortfolioItem from './PortfolioItem';
 import { getImageUrl } from '../helpers/utils';
-
-function NextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <FontAwesomeIcon icon={faChevronRight} onClick={onClick}
-      className={`${className} text-black hover:text-black text-5xl`}
-      style={{
-        ...style,
-        position: 'absolute',
-        top: '50%',
-        left: '100%',
-        color: 'gray-500',
-        hoverColor: 'gray-900',
-        padding: '2px'
-      }}
-    />
-  );
-}
-
-
-function PrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <FontAwesomeIcon
-      icon={faChevronLeft}
-      onClick={onClick}
-      className={`${className} text-black hover:text-black text-5xl`}
-      style={{
-        ...style,
-        position: 'absolute',
-        top: '50%',
-        left: '-20px',
-        marginRight: '100px',
-        color: 'text-gray-800',
-        hoverColor: 'bg-primary-500',
-        padding: '2px',
-        zIndex: '1'
-      }}
-    />
-  );
-}
 
 const Portfolio = (props) => {
   const { items } = props;
@@ -61,42 +15,12 @@ const Portfolio = (props) => {
     setShowGrid(!showGrid);
   };
 
-  const settings = {
-    arrows: true,
-    dots: true,
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    speed: 300,
-    autoplaySpeed: 2000,
-    cssEase: "linear",
-    className: "slides",
-    autoplay: true, // Enable autoplay
-    centerPadding: '60px', // Adjust the padding for the center slide
-    responsive: [
-      {
-        breakpoint: 768, // Mobile breakpoint
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-      {
-        breakpoint: 1024, // Tablet breakpoint
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-    ],
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />
-  };
-
   return (
     <section id="portfolio" className="bg-twilight-500 pt-10 pb-20 px-10 relative">
       <div className="shape-divider"></div>
       <div className="container mx-auto text-center">
         <button
-          className="bg-primary-500 hover:bg-primary-400 text-white font-bold mb-10 text-clampButton uppercase py-3 px-7 rounded-full inline-flex items-center"
+          className="bg-primary-800 hover:bg-primary-900 text-white font-bold mb-10 text-clampButton uppercase py-3 px-7 rounded-full inline-flex items-center"
           onClick={toggleView}
         >
           {showGrid ? "View as slider" : "View as grid"}
@@ -135,35 +59,33 @@ const Portfolio = (props) => {
           </div>
 
         ) : (
-          <Slider {...settings}>
+          <Carousel label="Portfolio projects">
             {items.map((item) => (
               <div key={item.sys.id} className="bg-transparent p-6">
                 <h1 className="text-2xl font-bold mb-2">{item.fields.name}</h1>
                 <p className="text-gray-800 mb-2">{item.fields.description}</p>
-                <p className="text-sm text-gray-500 mb-6">{item.fields.tech}</p>
-                <a href={item.fields.deployed} style={{ display: "inline-block", overflow: "hidden" }} rel="noopener noreferrer" target="_blank">
+                <p className="text-sm text-gray-600 mb-6">{item.fields.tech}</p>
+                <a href={item.fields.deployed} className="max-w-full" style={{ display: "inline-block", overflow: "hidden" }} rel="noopener noreferrer" target="_blank">
                   <picture>
                     <source type="image/avif" srcSet={getImageUrl(item.fields.image, { width: 750, height: 466, format: 'avif', quality: 60 })} />
-                    <motion.img
+                    <img
                       src={getImageUrl(item.fields.image, { width: 750, height: 466 })}
                       alt={item.fields.name}
                       width="375"
                       height="233"
                       loading="lazy"
-                      className="object-cover h-[233px] w-[375px]"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.5 }}
+                      className="object-cover h-[233px] w-[375px] transition-transform duration-500 hover:scale-110"
                     />
                   </picture>
                 </a>
 
                 <div className="mt-8 flex flex-col gap-2 sm:gap-4 mb:flex-row items-center justify-center">
-                  <a href={item.fields.deployed} rel="noopener noreferrer" target="_blank" className="rounded-full bg-primary-500 hover:bg-primary-600 text-white text-clampButton font-semibold py-2 px-4 lg:px-6 transition duration-300">
+                  <a href={item.fields.deployed} rel="noopener noreferrer" target="_blank" className="rounded-full bg-primary-800 hover:bg-primary-900 text-white text-clampButton font-semibold py-2 px-4 lg:px-6 transition duration-300">
                     Demo
                     <FontAwesomeIcon icon={faEye} className="ml-2" />
                   </a>
                   {item.fields.github && (
-                    <a href={item.fields.github} rel="noopener noreferrer" target="_blank" className="rounded-full bg-secondary-500 hover:bg-secondary-600 text-white text-clampButton font-semibold py-2 px-4 lg:px-6 transition duration-300">
+                    <a href={item.fields.github} rel="noopener noreferrer" target="_blank" className="rounded-full bg-secondary-700 hover:bg-secondary-800 text-white text-clampButton font-semibold py-2 px-4 lg:px-6 transition duration-300">
                       GitHub
                       <FontAwesomeIcon icon={faGithub} className="ml-2" />
                     </a>
@@ -171,7 +93,7 @@ const Portfolio = (props) => {
                 </div>
               </div>
             ))}
-          </Slider>
+          </Carousel>
 
 
         )}

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import axios from 'axios';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -15,7 +14,13 @@ const Contact = () => {
 
     const data = { name, email, message };
     try {
-      await axios.post('https://gleeful-palmier-14211e.netlify.app/.netlify/functions/sendEmail', data);
+      const response = await fetch('https://gleeful-palmier-14211e.netlify.app/.netlify/functions/sendEmail', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      // Unlike axios, fetch doesn't reject on HTTP error statuses
+      if (!response.ok) throw new Error(`Request failed: ${response.status}`);
       setSuccessMessage('Email sent successfully');
       setErrorMessage('');
       setLoading(false);

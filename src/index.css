@@ -46,6 +46,15 @@ p, ul, button {
 
 
 
+/* Hide the scrollbar on the portfolio carousel while keeping it scrollable */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 @media screen and (max-width: 400px) {
   .hero-size {
     height: 80vh !important;

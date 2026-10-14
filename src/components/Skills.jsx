@@ -4,38 +4,32 @@ const Skills = () => {
   const skills = [
     {
       name: "Frontend",
-      color: "secondary-500",
-      text: "white",
+      chipClass: "bg-secondary-700 text-white",
       skills: ["JavaScript", "HTML/CSS", "Vue.js", "React/Next.js", "TypeScript"]
     },
     {
       name: "Backend",
-      color: "primary-500",
-      text: "white",
+      chipClass: "bg-primary-800 text-white",
       skills: ["Node.js", "MongoDB", "MySQL", "GraphQL", "Express"]
     },
     {
       name: "CSS Frameworks",
-      color: "twilight-500",
-      text: "gray-500",
+      chipClass: "bg-twilight-500 text-gray-700",
       skills: ["Tailwind", "Vuetify", "Chakra", "Material UI", "Bootstrap"]
     },
     {
       name: "Testing",
-      color: "secondary-500",
-      text: "white",
+      chipClass: "bg-secondary-700 text-white",
       skills: ["Jest"]
     },
     {
       name: "Cloud Services",
-      color: "primary-500",
-      text: "white",
+      chipClass: "bg-primary-800 text-white",
       skills: ["AWS"]
     },
     {
       name: "Version Control",
-      color: "twilight-500",
-      text: "gray-500",
+      chipClass: "bg-twilight-500 text-gray-700",
       skills: ["Git"]
     }
   ];
@@ -56,13 +50,13 @@ const Skills = () => {
         </div>
         <div className="flex flex-col gap-20 max-w-sm text-center lg:ml-20 ">
           <div className="grid tb:grid-cols-3 grid-cols-2 lg:gap-5 gap-5">
-            {skills.map(({ name, color, skills, text }) => (
+            {skills.map(({ name, chipClass, skills }) => (
               <div key={name} className="flex flex-col gap-2">
                 <span className={`text-black text-sm capitalize font-bold`}>
                   {name}:
                 </span>
                 {skills.map((skill, index) => (
-                  <span key={index} className={`bg-${color} text-${text} py-1 px-3 rounded-full text-clampChips`}>
+                  <span key={index} className={`${chipClass} py-1 px-3 rounded-full text-clampChips`}>
                     {skill}
                   </span>
                 ))}

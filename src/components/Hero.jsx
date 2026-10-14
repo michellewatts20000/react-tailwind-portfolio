@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 const heroSrcSet = (format) =>
   [640, 1024, 1920].map((w) => `/assets/air-balloon-bg-${w}.${format} ${w}w`).join(", ");
 
@@ -36,18 +34,14 @@ const HeroSection = () => {
           <p className="text-white text-base text-secondary-500 max-w-[400px] text-center">
             I specialise in React and Vue frameworks. I have a background in design and multimedia. This site was built using React and Tailwind CSS.
           </p>
-          <motion.span
-            initial={{ scale: 1 }}
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          >
+          <span className="inline-block transition-transform duration-300 hover:scale-105">
             <button
-              className="next-button bg-primary-500 hover:bg-primary-600 text-white font-bold mt-10 text-clampButton py-3 px-4 sm:px-7 rounded-full inline-flex items-center"
+              className="next-button bg-primary-800 hover:bg-primary-900 text-white font-bold mt-10 text-clampButton py-3 px-4 sm:px-7 rounded-full inline-flex items-center"
               onClick={() => (window.location.href = "#portfolio")}
             >
               Explore Projects 
             </button>
-          </motion.span>
+          </span>
         </div>
       </div>
     </section>

@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="FrlEDAhxm2FNwnl2MNoI6m6K-7yCL0zMNSF3QWxjxFw" />
   <title>Michelle Watts' Portfolio</title>
+  <meta name="description" content="Michelle Watts is a Sydney-based software developer specialising in React and Vue, with a background in design and multimedia." />
   <link rel="preconnect" href="https://cdn.contentful.com" crossorigin />
   <link rel="preconnect" href="https://images.ctfassets.net" />
   <link rel="preload" as="image" type="image/avif" fetchpriority="high"
@@ -15,8 +16,9 @@
 </head>
 
   <!-- Google tag (gtag.js) -->
-<!-- Loaded after the page has finished loading so it doesn't compete with the site itself.
-     gtag() calls before then are queued in dataLayer and sent once the script arrives. -->
+<!-- Loaded on the visitor's first interaction (or after 5 seconds) so it doesn't compete with the
+     site while it starts up. gtag() calls before then are queued in dataLayer and sent once the
+     script arrives. Visitors who leave within 5 seconds without interacting won't be counted. -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -24,15 +26,23 @@
 
   gtag('config', 'G-Z5SWHFG9S1');
 
-  window.addEventListener('load', function () {
+  (function () {
+    var events = ['scroll', 'pointerdown', 'keydown', 'touchstart'];
+    var loaded = false;
+    var timer;
     var loadGtag = function () {
+      if (loaded) return;
+      loaded = true;
+      clearTimeout(timer);
+      events.forEach(function (event) { window.removeEventListener(event, loadGtag); });
       var script = document.createElement('script');
       script.async = true;
       script.src = 'https://www.googletagmanager.com/gtag/js?id=G-Z5SWHFG9S1';
       document.head.appendChild(script);
     };
-    'requestIdleCallback' in window ? requestIdleCallback(loadGtag, { timeout: 3000 }) : setTimeout(loadGtag, 1);
-  });
+    events.forEach(function (event) { window.addEventListener(event, loadGtag, { once: true, passive: true }); });
+    timer = setTimeout(loadGtag, 5000);
+  })();
 </script>
 
 <body>
